@@ -1,31 +1,44 @@
-[gd_scene load_steps=7 format=3 uid="uid://caklxqo0drbqa"]
+[gd_scene load_steps=9 format=3 uid="uid://caklxqo0drbqa"]
 
 [ext_resource type="Script" uid="uid://rayqj7xwooks" path="res://Scripts/MeshGen/mesh_gen.gd" id="1_ggml6"]
 [ext_resource type="Material" uid="uid://b5661yyu1bk64" path="res://Textures/Mask_mat.tres" id="2_6no6t"]
+[ext_resource type="Script" uid="uid://bfr6vxjyo7qsn" path="res://Scripts/MeshGen/mask_rating.gd" id="3_fn4vq"]
+[ext_resource type="PackedScene" uid="uid://cxb624y5iqde2" path="res://Models/beanboi1.gltf" id="4_a0o03"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_6no6t"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a0o03"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ggml6"]
-
-[sub_resource type="Sky" id="Sky_6no6t"]
-sky_material = SubResource("ProceduralSkyMaterial_ggml6")
+[sub_resource type="Sky" id="Sky_u5fwd"]
+sky_material = SubResource("ProceduralSkyMaterial_a0o03")
 
 [sub_resource type="Environment" id="Environment_fn4vq"]
 background_mode = 2
-sky = SubResource("Sky_6no6t")
+sky = SubResource("Sky_u5fwd")
 
-[node name="MeshGenExample" type="Node3D" node_paths=PackedStringArray("mesh")]
+[sub_resource type="BoxMesh" id="BoxMesh_6no6t"]
+
+[node name="MeshGenExample" type="Node3D" node_paths=PackedStringArray("mesh", "mask_rating", "bean_container")]
 script = ExtResource("1_ggml6")
-mesh = NodePath("MeshInstance3D")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.08032232, 0, -0.05956782, 0, -0.1, 0, 0.05956782, 0, 0.08032232, 0, 0, 0)
-material_override = ExtResource("2_6no6t")
-mesh = SubResource("BoxMesh_6no6t")
+mesh = NodePath("Node3D/MeshInstance3D")
+mask_rating = NodePath("Node")
+bean_container = NodePath("Node3D")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.526156)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0307198)
 environment = SubResource("Environment_fn4vq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.77364117, 0.63362396, 0, -0.63362396, 0.77364117, 0, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="beanboi1" parent="Node3D" instance=ExtResource("4_a0o03")]
+transform = Transform3D(-0.030895043, 0, 0.29840493, 0, 0.3, 0, -0.29840493, 0, -0.030895043, -0.044432074, -1.0186929, -0.1335153)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.01, 0, -8.7422775e-10, 0, -0.01, 0, 8.7422775e-10, 0, 0.01, 0, 0, 0.3658679)
+material_override = ExtResource("2_6no6t")
+mesh = SubResource("BoxMesh_6no6t")
+skeleton = NodePath("../..")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_fn4vq")

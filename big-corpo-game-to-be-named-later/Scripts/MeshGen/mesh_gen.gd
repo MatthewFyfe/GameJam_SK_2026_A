@@ -8,36 +8,111 @@ var height: Image = Image.new()
 
 @export var mat:Material
 
+var ratings:Array[float] = []
+
+@export var mask_rating:MaskRating
+
+@export var bean_container:Node3D
+
+#@export var 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#texture.load("res://Textures/GMaks.png")
+	#height.load("res://Textures/GHeight.png")
+	
+	texture.load("res://Textures/maaaask.png")
+	height.load("res://Textures/HEEIGHT.png")
+	var color:Image = Image.new()
+	color.load("res://Textures/Imrg.png")
+	
+	mesh.mesh = generate_mesh(texture,height)
+	
+	mask_rating.rate_textures(texture,height,texture)
+	texture.load("res://Textures/GMaks.png")
+	mask_rating.rate_textures(texture,height,color)
+	pass # Replace with function body.
+	
+
+func generate_mesh(mask:Image,depth:Image) -> ArrayMesh:
+	var thickness:float = 5.0
+	
+	#texture.load("res://Textures/GMaks.png")
+	#height.load("res://Textures/GHeight.png")
 	
 	texture.load("res://Textures/maaaask.png")
 	height.load("res://Textures/HEEIGHT.png")
 	
-	var stool = SurfaceTool.new()
+	var stool := SurfaceTool.new()
+	var indx := 0
 	
 	stool.begin(Mesh.PRIMITIVE_TRIANGLES)
 	for x in range(255):
 		for y in range(255):
-			var c := texture.get_pixel(x,y)
-			var h := height.get_pixel(x,y)
-			var h10 := height.get_pixel(x+1,y)
-			var h01 := height.get_pixel(x,y+1)
-			var h11 := height.get_pixel(x+1,y+1)
+			var c := mask.get_pixel(x,y)
+			var h := depth.get_pixel(x,y)
+			var h10 := depth.get_pixel(x+1,y)
+			var h01 := depth.get_pixel(x,y+1)
+			var h11 := depth.get_pixel(x+1,y+1)
 			if(c.r > 0):
 				stool.set_uv(Vector2(x/256.0,y/256.0))
 				stool.add_vertex(Vector3(x-128,y-128,h.r*25.0))
+				stool.add_vertex(Vector3(x-128,y-128+1,h01.r*25.0))
 				stool.add_vertex(Vector3(x-128+1,y-128,h10.r*25.0))
 				stool.add_vertex(Vector3(x-128+1,y-128+1,h11.r*25.0))
-				stool.add_vertex(Vector3(x-128,y-128,h.r*25.0))
 				
-				stool.add_vertex(Vector3(x-128+1,y-128+1,h11.r*25.0))
+				populate_verticies(stool, indx)
+				
+				indx += 4
+				
+				stool.set_uv(Vector2(x/256.0,y/256.0))
+				stool.add_vertex(Vector3(x-128,y-128,h.r*25.0 - thickness))
+				stool.add_vertex(Vector3(x-128,y-128+1,h01.r*25.0 - thickness))
+				stool.add_vertex(Vector3(x-128+1,y-128,h10.r*25.0 - thickness))
+				stool.add_vertex(Vector3(x-128+1,y-128+1,h11.r*25.0 - thickness))
+				
+				populate_verticies(stool, indx)
+				
+				indx += 4
+				
+				stool.set_uv(Vector2(x/256.0,y/256.0))
+				stool.add_vertex(Vector3(x-128,y-128,h.r*25.0))
 				stool.add_vertex(Vector3(x-128,y-128+1,h01.r*25.0))
-	mesh.mesh = stool.commit()
-	pass # Replace with function body.
+				stool.add_vertex(Vector3(x-128,y-128,h.r*25.0 - thickness))
+				stool.add_vertex(Vector3(x-128,y-128+1,h01.r*25.0 - thickness))
+				
+				populate_verticies(stool, indx)
+				
+				indx += 4
+				
+				stool.set_uv(Vector2(x/256.0,y/256.0))
+				stool.add_vertex(Vector3(x-128+1,y-128,h10.r*25.0))
+				stool.add_vertex(Vector3(x-128+1,y-128+1,h11.r*25.0))
+				stool.add_vertex(Vector3(x-128+1,y-128,h10.r*25.0 - thickness))
+				stool.add_vertex(Vector3(x-128+1,y-128+1,h11.r*25.0 - thickness))
+				
+				populate_verticies(stool, indx)
+				
+				indx += 4
+				
+	stool.generate_normals(true)
+	return stool.commit()
 
+func populate_verticies(stool:SurfaceTool, indx:int):
+	stool.add_index(indx+0)
+	stool.add_index(indx+1)
+	stool.add_index(indx+2)
+	
+	stool.add_index(indx+1)
+	stool.add_index(indx+3)
+	stool.add_index(indx+2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	mesh.rotation.y += delta
+	#mesh.rotation.y += delta
+	if(bean_container != null):
+		if(Input.is_action_pressed("ui_left")):
+			bean_container.rotation.y -= delta
+		if(Input.is_action_pressed("ui_right")):
+			bean_container.rotation.y += delta
 	pass

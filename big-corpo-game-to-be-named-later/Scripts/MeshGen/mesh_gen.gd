@@ -36,7 +36,7 @@ func _ready() -> void:
 
 func generate_mesh(mask:Image,depth:Image) -> ArrayMesh:
 	var thickness:float = 5.0
-	
+	(mesh.material_override as StandardMaterial3D).albedo_texture
 	#texture.load("res://Textures/GMaks.png")
 	#height.load("res://Textures/GHeight.png")
 	

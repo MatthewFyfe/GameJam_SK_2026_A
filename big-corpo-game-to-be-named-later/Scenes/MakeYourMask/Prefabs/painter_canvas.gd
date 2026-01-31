@@ -1,4 +1,5 @@
 extends Sprite2D
+class_name PainterCanvas
 
 #set up all our stamps here
 @export var stamp: Texture2D
@@ -20,7 +21,7 @@ extends Sprite2D
 #set canvas properties
 @export var img_size := Vector2i(256,256)
 
-var img: Image
+@export var img: Image
 var brush_img : Image
 
 # Called when the node enters the scene tree for the first time.

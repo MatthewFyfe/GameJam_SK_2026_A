@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bx0qar1udm4ld"]
+[gd_scene load_steps=3 format=3 uid="uid://bx0qar1udm4ld"]
 
 [ext_resource type="Script" uid="uid://2xgialpvto2q" path="res://Scenes/MakeYourMask/Prefabs/painter_palette.gd" id="1_58ynw"]
+[ext_resource type="Texture2D" uid="uid://dpi2shmmxa828" path="res://Screenshots/eraser.jpg" id="2_hwwb4"]
 
 [node name="PaintPalette" type="Control"]
 layout_mode = 3
@@ -46,9 +47,8 @@ offset_left = 60.0
 offset_top = 50.0
 offset_right = 95.00003
 offset_bottom = 85.00002
-color = Color(0, 0, 0, 1)
 
-[node name="GridContainer" type="GridContainer" parent="Panel"]
+[node name="GridContainer" type="GridContainer" parent="Panel" node_paths=PackedStringArray("eraser_ref")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -62,42 +62,58 @@ grow_horizontal = 2
 grow_vertical = 0
 columns = 3
 script = ExtResource("1_58ynw")
+eraser_ref = NodePath("EraserTransparent")
 
-[node name="ColorRect" type="ColorRect" parent="Panel/GridContainer"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-color = Color(1, 0, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Panel/GridContainer"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-color = Color(0, 1, 0, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="Panel/GridContainer"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-color = Color(0, 0, 1, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="Panel/GridContainer"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-color = Color(1, 1, 0, 1)
-
-[node name="ColorRect5" type="ColorRect" parent="Panel/GridContainer"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-color = Color(1, 0, 1, 1)
-
-[node name="ColorRect6" type="ColorRect" parent="Panel/GridContainer"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-color = Color(0, 1, 1, 1)
-
-[node name="ColorRect7" type="ColorRect" parent="Panel/GridContainer"]
+[node name="Black" type="ColorRect" parent="Panel/GridContainer"]
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect8" type="ColorRect" parent="Panel/GridContainer"]
+[node name="White" type="ColorRect" parent="Panel/GridContainer"]
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
+
+[node name="Red" type="ColorRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Green" type="ColorRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+color = Color(0, 1, 0, 1)
+
+[node name="Blue" type="ColorRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+color = Color(0, 0.02745098, 1, 1)
+
+[node name="Yellow" type="ColorRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="Teal" type="ColorRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+color = Color(0, 1, 1, 1)
+
+[node name="Purple" type="ColorRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+color = Color(1, 0, 1, 1)
+
+[node name="EraserTransparent" type="ColorRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="eraser_pmg" type="TextureRect" parent="Panel/GridContainer/EraserTransparent"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hwwb4")
+expand_mode = 2

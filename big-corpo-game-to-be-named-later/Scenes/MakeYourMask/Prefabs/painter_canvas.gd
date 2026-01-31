@@ -6,7 +6,7 @@ class_name PainterCanvas
 @export var mask: Texture2D
 
 #set brush properties user is currenty using
-@export var paint_color : Color = Color.BLACK :
+@export var paint_color : Color = Color.WHITE :
 	set(value):
 		paint_color = value
 		current_color_rect.color = value

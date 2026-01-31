@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://ciehhml8pkd35"]
+[gd_scene load_steps=6 format=3 uid="uid://ciehhml8pkd35"]
 
 [ext_resource type="Script" uid="uid://bglw8b81wkuao" path="res://Scenes/MakeYourMask/make_your_mask.gd" id="1_217l0"]
 [ext_resource type="PackedScene" uid="uid://c1gjn276iqw6q" path="res://Scenes/MakeYourMask/Prefabs/PainterCanvas.tscn" id="1_iydgg"]
 [ext_resource type="Texture2D" uid="uid://r2eljl4ycp60" path="res://Screenshots/Screenshot_20260131_133222.png" id="2_rr3f8"]
 [ext_resource type="PackedScene" uid="uid://bx0qar1udm4ld" path="res://Scenes/MakeYourMask/Prefabs/PaintPalette.tscn" id="2_s3r2p"]
+[ext_resource type="PackedScene" uid="uid://caklxqo0drbqa" path="res://Scenes/MeshGenExample.tscn" id="5_0tiwb"]
 
-[node name="MakeYourMask" type="Node3D" node_paths=PackedStringArray("painter_image", "PBack_image", "Palette_grid_container")]
+[node name="MakeYourMask" type="Node3D" node_paths=PackedStringArray("painter_image", "PBack_image", "Palette_grid_container", "MeshGen_ref")]
 script = ExtResource("1_217l0")
 painter_image = NodePath("Control/PainterCanvas")
 PBack_image = NodePath("Control/PBackCanvas")
 Palette_grid_container = NodePath("Control/PaintPalette/Panel/GridContainer")
+MeshGen_ref = NodePath("Control/MeshGenExample")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -37,30 +39,6 @@ layout_mode = 1
 [node name="GridContainer" parent="Control/PaintPalette/Panel" index="2" node_paths=PackedStringArray("painter_image", "current_color_rect")]
 painter_image = NodePath("../../../PainterCanvas")
 current_color_rect = NodePath("../CurrentPaintColor")
-
-[node name="ColorRect" parent="Control/PaintPalette/Panel/GridContainer" index="0"]
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect2" parent="Control/PaintPalette/Panel/GridContainer" index="1"]
-color = Color(1, 1, 1, 1)
-
-[node name="ColorRect3" parent="Control/PaintPalette/Panel/GridContainer" index="2"]
-color = Color(1, 0, 0, 1)
-
-[node name="ColorRect4" parent="Control/PaintPalette/Panel/GridContainer" index="3"]
-color = Color(0, 1, 0, 1)
-
-[node name="ColorRect5" parent="Control/PaintPalette/Panel/GridContainer" index="4"]
-color = Color(0, 0.02745098, 1, 1)
-
-[node name="ColorRect6" parent="Control/PaintPalette/Panel/GridContainer" index="5"]
-color = Color(1, 1, 0, 1)
-
-[node name="ColorRect7" parent="Control/PaintPalette/Panel/GridContainer" index="6"]
-color = Color(0, 1, 1, 1)
-
-[node name="ColorRect8" parent="Control/PaintPalette/Panel/GridContainer" index="7"]
-color = Color(1, 0, 1, 1)
 
 [node name="Button_DoneMask" type="Button" parent="Control"]
 layout_mode = 1
@@ -107,6 +85,14 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Done Painting"
 
+[node name="MeshGenExample" parent="Control" instance=ExtResource("5_0tiwb")]
+
+[node name="Camera3D" parent="Control/MeshGenExample" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23, 0, 3.031)
+
+[node name="Node3D" parent="Control/MeshGenExample" index="2"]
+transform = Transform3D(0.8746197, 0, -0.4848096, 0, 1, 0, 0.4848096, 0, 0.8746197, 0, 0, 0)
+
 [connection signal="value_changed" from="Control/PaintPalette/Panel/HSlider" to="Control/PainterCanvas" method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Control/Button_DoneMask" to="." method="_on_button_done_mask_pressed"]
 [connection signal="pressed" from="Control/Button_DoneHeightMap" to="." method="_on_button_done_height_map_pressed"]
@@ -114,3 +100,4 @@ text = "Done Painting"
 
 [editable path="Control/PainterCanvas"]
 [editable path="Control/PaintPalette"]
+[editable path="Control/MeshGenExample"]

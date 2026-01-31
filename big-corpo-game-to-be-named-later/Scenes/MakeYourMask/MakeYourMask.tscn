@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ciehhml8pkd35"]
+
+[ext_resource type="PackedScene" uid="uid://c1gjn276iqw6q" path="res://Scenes/MakeYourMask/Prefabs/PainterCanvas.tscn" id="1_iydgg"]
+[ext_resource type="PackedScene" uid="uid://bx0qar1udm4ld" path="res://Scenes/MakeYourMask/Prefabs/PaintPalette.tscn" id="2_s3r2p"]
+
+[node name="MakeYourMask" type="Node3D"]
+
+[node name="PainterCanvas" parent="." node_paths=PackedStringArray("current_color_rect") instance=ExtResource("1_iydgg")]
+position = Vector2(300, 256)
+current_color_rect = NodePath("../PaintPalette/Panel/CurrentPaintColor")
+
+[node name="PaintPalette" parent="." instance=ExtResource("2_s3r2p")]
+
+[node name="GridContainer" parent="PaintPalette/Panel" index="2" node_paths=PackedStringArray("painter_image", "current_color_rect")]
+painter_image = NodePath("../../../PainterCanvas")
+current_color_rect = NodePath("../CurrentPaintColor")
+
+[connection signal="value_changed" from="PaintPalette/Panel/HSlider" to="PainterCanvas" method="_on_h_slider_value_changed"]
+
+[editable path="PainterCanvas"]
+[editable path="PaintPalette"]

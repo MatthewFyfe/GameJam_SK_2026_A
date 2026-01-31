@@ -38,30 +38,6 @@ layout_mode = 1
 painter_image = NodePath("../../../PainterCanvas")
 current_color_rect = NodePath("../CurrentPaintColor")
 
-[node name="ColorRect" parent="Control/PaintPalette/Panel/GridContainer" index="0"]
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect2" parent="Control/PaintPalette/Panel/GridContainer" index="1"]
-color = Color(1, 1, 1, 1)
-
-[node name="ColorRect3" parent="Control/PaintPalette/Panel/GridContainer" index="2"]
-color = Color(1, 0, 0, 1)
-
-[node name="ColorRect4" parent="Control/PaintPalette/Panel/GridContainer" index="3"]
-color = Color(0, 1, 0, 1)
-
-[node name="ColorRect5" parent="Control/PaintPalette/Panel/GridContainer" index="4"]
-color = Color(0, 0.02745098, 1, 1)
-
-[node name="ColorRect6" parent="Control/PaintPalette/Panel/GridContainer" index="5"]
-color = Color(1, 1, 0, 1)
-
-[node name="ColorRect7" parent="Control/PaintPalette/Panel/GridContainer" index="6"]
-color = Color(0, 1, 1, 1)
-
-[node name="ColorRect8" parent="Control/PaintPalette/Panel/GridContainer" index="7"]
-color = Color(1, 0, 1, 1)
-
 [node name="Button_DoneMask" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 3

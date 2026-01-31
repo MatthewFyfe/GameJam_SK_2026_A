@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://ciehhml8pkd35"]
+[gd_scene load_steps=10 format=3 uid="uid://ciehhml8pkd35"]
 
 [ext_resource type="Script" uid="uid://bglw8b81wkuao" path="res://Scenes/MakeYourMask/make_your_mask.gd" id="1_217l0"]
 [ext_resource type="PackedScene" uid="uid://c1gjn276iqw6q" path="res://Scenes/MakeYourMask/Prefabs/PainterCanvas.tscn" id="1_iydgg"]
 [ext_resource type="Texture2D" uid="uid://r2eljl4ycp60" path="res://Screenshots/Screenshot_20260131_133222.png" id="2_rr3f8"]
 [ext_resource type="PackedScene" uid="uid://bx0qar1udm4ld" path="res://Scenes/MakeYourMask/Prefabs/PaintPalette.tscn" id="2_s3r2p"]
+[ext_resource type="Texture2D" uid="uid://20xs18xjxgbq" path="res://Textures/Brish3.png" id="4_ryyya"]
 [ext_resource type="PackedScene" uid="uid://caklxqo0drbqa" path="res://Scenes/MeshGenExample.tscn" id="5_0tiwb"]
-[ext_resource type="ArrayMesh" uid="uid://cu0njrptcgj1c" path="res://Models/sanstoneTILE1_Cube.res" id="6_yp5sp"]
+[ext_resource type="ArrayMesh" uid="uid://lfbeln2loe40" path="res://Models/sanstoneTILE1_Cube.res" id="6_yp5sp"]
 [ext_resource type="PackedScene" uid="uid://4un6upeoaxvy" path="res://Models/sanstoneTILE1.glb" id="7_ryyya"]
 
 [sub_resource type="MeshLibrary" id="MeshLibrary_p7jym"]
@@ -40,6 +41,7 @@ position = Vector2(300, 256)
 [node name="PainterCanvas" parent="Control" node_paths=PackedStringArray("current_color_rect") instance=ExtResource("1_iydgg")]
 position = Vector2(300, 256)
 current_color_rect = NodePath("../PaintPalette/Panel/CurrentPaintColor")
+brush_texture = ExtResource("4_ryyya")
 canvas_bg = Color(0, 0, 0, 0.25882354)
 canvas_bg2 = Color(0, 0, 0, 0.25882354)
 canvas_bg3 = Color(0, 0, 0, 0.25882354)

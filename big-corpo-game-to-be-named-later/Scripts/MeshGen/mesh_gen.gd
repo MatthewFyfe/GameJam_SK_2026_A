@@ -35,8 +35,9 @@ func _ready() -> void:
 	
 
 #Matt sends the art here
-func export_bean_mask(maskShape, maskDepth, maskColor):
-	(mesh.material_override as StandardMaterial3D).albedo_texture = maskColor
+func export_bean_mask(maskShape, maskDepth, maskColor):	
+	var imgtex : ImageTexture = ImageTexture.create_from_image(maskColor)
+	(mesh.material_override as StandardMaterial3D).albedo_texture = imgtex
 	mesh.mesh = generate_mesh(maskShape, maskDepth)
 
 func generate_mesh(mask:Image,depth:Image) -> ArrayMesh:

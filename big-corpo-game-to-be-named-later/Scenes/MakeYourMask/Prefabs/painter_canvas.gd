@@ -30,6 +30,7 @@ var brush_img : Image
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
 	#demo_paint_system()	
+	update_brush()
 	setup_real_paint_system()
 
 

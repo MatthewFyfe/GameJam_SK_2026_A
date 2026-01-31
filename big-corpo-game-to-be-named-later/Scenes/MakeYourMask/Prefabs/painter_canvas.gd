@@ -6,7 +6,7 @@ class_name PainterCanvas
 @export var mask: Texture2D
 
 #set brush properties user is currenty using
-@export var paint_color : Color = Color.RED :
+@export var paint_color : Color = Color.BLACK :
 	set(value):
 		paint_color = value
 		current_color_rect.color = value
@@ -20,6 +20,9 @@ class_name PainterCanvas
 
 #set canvas properties
 @export var img_size := Vector2i(256,256)
+@export var canvas_bg : Color
+@export var canvas_bg2 : Color
+@export var canvas_bg3 : Color
 
 @export var img: Image
 var brush_img : Image
@@ -37,7 +40,7 @@ func demo_paint_system() -> void:
 	img = texture.get_image()
 	
 	#fill canvas with a gray background
-	img.fill(Color.GRAY)
+	img.fill(canvas_bg)
 	
 	#ref to sticker
 	var stamp_img = stamp.get_image()
@@ -58,7 +61,18 @@ func demo_paint_system() -> void:
 #Create and setup a paint canvas
 func setup_real_paint_system() -> void:
 	img = Image.create_empty(img_size.x, img_size.y, false, Image.FORMAT_RGBA8)
-	img.fill(Color.GRAY)
+	img.fill(canvas_bg)
+	texture = ImageTexture.create_from_image(img)
+	
+#Erase canvas
+func erase_canvas(level : int) -> void:
+	if level == 1 :
+		img.fill(canvas_bg)
+	elif level == 2 :
+		img.fill(canvas_bg2)
+	elif level == 3 :
+		img.fill(canvas_bg3)
+	
 	texture = ImageTexture.create_from_image(img)
 
 #Called every time we paint

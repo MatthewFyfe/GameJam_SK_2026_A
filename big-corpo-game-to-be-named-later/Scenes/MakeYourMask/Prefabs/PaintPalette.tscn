@@ -42,10 +42,11 @@ text = "Brush Size"
 [node name="CurrentPaintColor" type="ColorRect" parent="Panel"]
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 0
-offset_left = 60.355
-offset_top = 64.355
-offset_right = 95.35503
-offset_bottom = 99.35503
+offset_left = 60.0
+offset_top = 50.0
+offset_right = 95.00003
+offset_bottom = 85.00002
+color = Color(0, 0, 0, 1)
 
 [node name="GridContainer" type="GridContainer" parent="Panel"]
 layout_mode = 1
@@ -59,7 +60,7 @@ offset_top = -113.0
 offset_right = 37.0
 grow_horizontal = 2
 grow_vertical = 0
-columns = 2
+columns = 3
 script = ExtResource("1_58ynw")
 
 [node name="ColorRect" type="ColorRect" parent="Panel/GridContainer"]
@@ -91,3 +92,12 @@ color = Color(1, 0, 1, 1)
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 color = Color(0, 1, 1, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2

@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://caklxqo0drbqa"]
+
+[ext_resource type="Script" uid="uid://rayqj7xwooks" path="res://Scripts/MeshGen/mesh_gen.gd" id="1_ggml6"]
+[ext_resource type="Material" uid="uid://b5661yyu1bk64" path="res://Textures/Mask_mat.tres" id="2_6no6t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6no6t"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ggml6"]
+
+[sub_resource type="Sky" id="Sky_6no6t"]
+sky_material = SubResource("ProceduralSkyMaterial_ggml6")
+
+[sub_resource type="Environment" id="Environment_fn4vq"]
+background_mode = 2
+sky = SubResource("Sky_6no6t")
+
+[node name="MeshGenExample" type="Node3D" node_paths=PackedStringArray("mesh")]
+script = ExtResource("1_ggml6")
+mesh = NodePath("MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.08032232, 0, -0.05956782, 0, -0.1, 0, 0.05956782, 0, 0.08032232, 0, 0, 0)
+material_override = ExtResource("2_6no6t")
+mesh = SubResource("BoxMesh_6no6t")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.526156)
+environment = SubResource("Environment_fn4vq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.77364117, 0.63362396, 0, -0.63362396, 0.77364117, 0, 0, 0)

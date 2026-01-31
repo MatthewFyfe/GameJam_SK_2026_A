@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://mnccodstjw4w"]
+[gd_scene load_steps=5 format=3 uid="uid://mnccodstjw4w"]
 
 [ext_resource type="Script" uid="uid://clgvkkfq0b5rn" path="res://Scenes/MainMenu/main_menu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://bwad6w4ayiub0" path="res://Textures/TitleScreen/logo.png" id="2_v763k"]
+[ext_resource type="Theme" uid="uid://cgvg25kwoey0m" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="3_adu2g"]
+[ext_resource type="Texture2D" uid="uid://bgmr5w8m5fn43" path="res://Textures/UI/woodpanelsquare1.png" id="5_0l8wx"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_28flt")
@@ -9,16 +11,12 @@ script = ExtResource("1_28flt")
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="MainMenuSplash" type="TextureRect" parent="Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = 265.0
 offset_top = -8.0
 offset_right = 1513.0
@@ -27,20 +25,64 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_v763k")
+metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 502.0
-offset_top = 427.0
-offset_right = 624.0
-offset_bottom = 458.0
+offset_left = 60.0
+offset_top = 245.0
+offset_right = 1088.0
+offset_bottom = 757.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="StartButton_1P" type="TextureButton" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_0l8wx")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/StartButton_1P"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -11.5
+offset_right = 57.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_adu2g")
 text = "Start (1 Player)"
 
-[connection signal="pressed" from="Control/Button" to="." method="button_start"]
+[node name="StartButton_2P" type="TextureButton" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_0l8wx")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/StartButton_2P"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -11.5
+offset_right = 57.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_adu2g")
+text = "Start (2 Player)"
+
+[connection signal="pressed" from="Control/HBoxContainer/StartButton_1P" to="." method="button_start"]

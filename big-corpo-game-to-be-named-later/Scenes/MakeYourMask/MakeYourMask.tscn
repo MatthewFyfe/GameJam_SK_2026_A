@@ -29,8 +29,8 @@ position = Vector2(300, 256)
 [node name="PainterCanvas" parent="Control" node_paths=PackedStringArray("current_color_rect") instance=ExtResource("1_iydgg")]
 position = Vector2(300, 256)
 current_color_rect = NodePath("../PaintPalette/Panel/CurrentPaintColor")
-canvas_bg = Color(0.50140655, 0.5014065, 0.5014065, 0.25882354)
-canvas_bg2 = Color(0.099985994, 0.099985994, 0.099985994, 0.25882354)
+canvas_bg = Color(0, 0, 0, 0.25882354)
+canvas_bg2 = Color(0, 0, 0, 0.25882354)
 canvas_bg3 = Color(0, 0, 0, 0.25882354)
 
 [node name="PaintPalette" parent="Control" instance=ExtResource("2_s3r2p")]

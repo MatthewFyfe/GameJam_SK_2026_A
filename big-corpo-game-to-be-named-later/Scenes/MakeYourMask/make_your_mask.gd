@@ -21,7 +21,7 @@ func _ready() -> void:
 
 func _on_button_done_mask_pressed() -> void:
 	#save this image as the base mask shape
-	baseMask = painter_image.img
+	baseMask = painter_image.img.duplicate()
 	#put mask shape in background so player can see it while height/color painting
 	PBack_image.texture = ImageTexture.create_from_image(painter_image.img)
 	painter_image.erase_canvas(2)
@@ -34,14 +34,14 @@ func _on_button_done_mask_pressed() -> void:
 
 func _on_button_done_height_map_pressed() -> void:
 	#save this image as the heightmap texture, swap to paint mode
-	heightMapMask = painter_image.img
+	heightMapMask = painter_image.img.duplicate()
 	painter_image.erase_canvas(3)
 	Palette_grid_container.set_palette_mode(3)
 
 
 func _on_button_done_painting_pressed() -> void:
 	#save this image as the color texture
-	paintedMask = painter_image.img
+	paintedMask = painter_image.img.duplicate()
 	
 	MeshGen_ref.export_bean_mask(baseMask, heightMapMask, paintedMask)
 	#get_tree().change_scene_to_file("res://Scenes/MeshGenExample.tscn")

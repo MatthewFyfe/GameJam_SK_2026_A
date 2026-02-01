@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ciehhml8pkd35"]
+[gd_scene load_steps=15 format=3 uid="uid://ciehhml8pkd35"]
 
 [ext_resource type="Script" uid="uid://bglw8b81wkuao" path="res://Scenes/MakeYourMask/make_your_mask.gd" id="1_217l0"]
 [ext_resource type="PackedScene" uid="uid://c1gjn276iqw6q" path="res://Scenes/MakeYourMask/Prefabs/PainterCanvas.tscn" id="1_iydgg"]
@@ -10,6 +10,9 @@
 [ext_resource type="ArrayMesh" uid="uid://lfbeln2loe40" path="res://Models/sanstoneTILE1_Cube.res" id="6_yp5sp"]
 [ext_resource type="Theme" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="7_8ewdo"]
 [ext_resource type="PackedScene" uid="uid://4un6upeoaxvy" path="res://Models/sanstoneTILE1.glb" id="7_ryyya"]
+[ext_resource type="Texture2D" uid="uid://c2dpngri7ng6t" path="res://Textures/UI/woodpanelsquare1_hover.png" id="8_dlbj7"]
+[ext_resource type="Texture2D" uid="uid://dga1fjmly8a6e" path="res://Textures/UI/woodpanelsquare1_warm.png" id="8_tahyh"]
+[ext_resource type="Texture2D" uid="uid://bchlgdja5fr47" path="res://Textures/UI/woodpanelsquare1_disabled.png" id="9_tahyh"]
 
 [sub_resource type="MeshLibrary" id="MeshLibrary_p7jym"]
 item/0/name = ""
@@ -20,12 +23,15 @@ item/0/shapes = []
 item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/0/navigation_layers = 1
 
-[node name="MakeYourMask" type="Node3D" node_paths=PackedStringArray("painter_image", "PBack_image", "Palette_grid_container", "MeshGen_ref")]
+[node name="MakeYourMask" type="Node3D" node_paths=PackedStringArray("painter_image", "PBack_image", "Palette_grid_container", "MeshGen_ref", "ButtonDoneMask", "ButtonDoneHeight", "ButtonDonePaint")]
 script = ExtResource("1_217l0")
 painter_image = NodePath("Control/PainterCanvas")
 PBack_image = NodePath("Control/PBackCanvas")
 Palette_grid_container = NodePath("Control/PaintPalette/Panel/GridContainer")
 MeshGen_ref = NodePath("Control/MeshGenExample")
+ButtonDoneMask = NodePath("Control/Button_DoneMask")
+ButtonDoneHeight = NodePath("Control/Button_DoneHeight")
+ButtonDonePaint = NodePath("Control/Button_DonePainting")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -62,7 +68,11 @@ offset_top = 389.0
 offset_right = 516.0
 offset_bottom = 901.0
 scale = Vector2(0.5, 0.5)
+theme = ExtResource("7_8ewdo")
 texture_normal = ExtResource("6_ducfl")
+texture_pressed = ExtResource("8_tahyh")
+texture_hover = ExtResource("8_dlbj7")
+texture_disabled = ExtResource("9_tahyh")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Control/Button_DoneMask"]
@@ -89,7 +99,11 @@ offset_top = 424.0
 offset_right = 688.0
 offset_bottom = 936.0
 scale = Vector2(0.5, 0.5)
+theme = ExtResource("7_8ewdo")
 texture_normal = ExtResource("6_ducfl")
+texture_pressed = ExtResource("8_tahyh")
+texture_hover = ExtResource("8_dlbj7")
+texture_disabled = ExtResource("9_tahyh")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Control/Button_DoneHeight"]
@@ -116,7 +130,11 @@ offset_top = 393.0
 offset_right = 873.0
 offset_bottom = 905.0
 scale = Vector2(0.5, 0.5)
+theme = ExtResource("7_8ewdo")
 texture_normal = ExtResource("6_ducfl")
+texture_pressed = ExtResource("8_tahyh")
+texture_hover = ExtResource("8_dlbj7")
+texture_disabled = ExtResource("9_tahyh")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Control/Button_DonePainting"]

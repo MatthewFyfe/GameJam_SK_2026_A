@@ -7,15 +7,19 @@ var paintedMask: Image
 
 #Note: PainterCanvas extends Sprite2D
 @export var painter_image : PainterCanvas
-
 @export var PBack_image : Sprite2D
-
 @export var Palette_grid_container : PainterPalettez
-
 @export var MeshGen_ref : Node3D
 
+@export var ButtonDoneMask : TextureButton
+@export var ButtonDoneHeight : TextureButton
+@export var ButtonDonePaint : TextureButton
+
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready() -> void:	
+	ButtonDoneMask.disabled = false
+	ButtonDoneHeight.disabled = true
+	ButtonDonePaint.disabled = true
 	pass # Replace with function body.
 
 
@@ -26,6 +30,10 @@ func _on_button_done_mask_pressed() -> void:
 	PBack_image.texture = ImageTexture.create_from_image(painter_image.img)
 	painter_image.erase_canvas(2)
 	Palette_grid_container.set_palette_mode(2)
+
+	ButtonDoneMask.disabled = true
+	ButtonDoneHeight.disabled = false
+	ButtonDonePaint.disabled = true
 	
 	#hide this button
 	
@@ -37,6 +45,10 @@ func _on_button_done_height_map_pressed() -> void:
 	heightMapMask = painter_image.img.duplicate()
 	painter_image.erase_canvas(3)
 	Palette_grid_container.set_palette_mode(3)
+	
+	ButtonDoneMask.disabled = true
+	ButtonDoneHeight.disabled = true
+	ButtonDonePaint.disabled = false
 
 
 func _on_button_done_painting_pressed() -> void:

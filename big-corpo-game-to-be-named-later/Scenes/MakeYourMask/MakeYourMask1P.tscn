@@ -25,3 +25,9 @@ transform = Transform3D(1, 0, 0, 0, 0.88308686, 0.46920955, 0, -0.46920955, 0.88
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_w11lr")
+
+[editable path="MakeYourMask"]
+[editable path="MakeYourMask/MeshGenExample"]
+[editable path="MakeYourMask/MeshGenExample/BeanBoiSceene"]
+[editable path="MakeYourMask/Player1/VBoxContainer/HBoxContainer2/PaintPalette"]
+[editable path="MakeYourMask/Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control/PainterCanvas"]

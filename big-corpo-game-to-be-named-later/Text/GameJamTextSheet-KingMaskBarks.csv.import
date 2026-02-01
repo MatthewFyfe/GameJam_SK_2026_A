@@ -2,11 +2,11 @@
 
 importer="csv_translation"
 type="Translation"
-uid="uid://cu8u50ri4y3eu"
+uid="uid://be2fbxostnllc"
 
 [deps]
 
-source_file="res://Text/Game Jam Text Sheet - King Mask Barks.csv"
+source_file="res://Text/GameJamTextSheet-KingMaskBarks.csv"
 
 [params]
 

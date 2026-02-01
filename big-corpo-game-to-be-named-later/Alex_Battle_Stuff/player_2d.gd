@@ -41,6 +41,28 @@ var bullet: PackedScene = preload("res://Alex_Battle_Stuff/bullet.tscn")
 var shot_timer: float = 0
 var current_health: float = max_health
 
+func _ready() -> void:
+	GlobalPlayerData.PlayersAlive += 1
+	if (GlobalPlayerData.PlayerData[player_ID] != null):
+		$MeshGenExample.setMesh(GlobalPlayerData.PlayerData[player_ID])
+		apply_ratings(GlobalPlayerData.PlayerScores[player_ID])
+func apply_ratings(ratings:Array):
+	Mirth = ratings[0]
+	Perspicacity = ratings[1]
+	Historical_materialism = ratings[2]
+	Misanthropy = ratings[3]
+	Equine = ratings[4]
+	Green = ratings[5]
+	Kitsch = ratings[6]
+	Mercator = ratings[7]
+	Fatherhood = ratings[8]
+	Appropriation = ratings[9]
+	Intelligence = ratings[0]
+	Girth = ratings[1]
+	Chutzpah = ratings[2]
+	Marketability = ratings[3]
+	Misnomer = ratings[4]
+
 func _physics_process(delta) -> void:
 	move(delta)
 	
@@ -52,6 +74,13 @@ func _physics_process(delta) -> void:
 		input_direction *= Input.get_joy_axis(player_ID, JoyAxis.JOY_AXIS_LEFT_X)
 		self.linear_velocity.z = 0
 		linear_velocity.x += input_direction * delta
+		
+		if(linear_velocity.x > 2):
+			($MeshGenExample as Node3D).global_rotation.y = deg_to_rad(45)
+		elif(linear_velocity.x < 2):
+			($MeshGenExample as Node3D).global_rotation.y = deg_to_rad(-45)
+		else:
+			($MeshGenExample as Node3D).global_rotation.y = deg_to_rad(0)
 		
 		#Jump
 		if (Input.is_joy_button_pressed(player_ID, JoyButton.JOY_BUTTON_A) and not jump_held and jumps > 0):

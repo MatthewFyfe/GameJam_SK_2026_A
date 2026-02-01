@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bf8cl4l3m71ww"]
+[gd_scene load_steps=7 format=3 uid="uid://bf8cl4l3m71ww"]
 
 [ext_resource type="Script" uid="uid://shn06ljruxmr" path="res://Alex_Battle_Stuff/player_2d.gd" id="1_7rblk"]
+[ext_resource type="PackedScene" uid="uid://caklxqo0drbqa" path="res://Scenes/MeshGenExample.tscn" id="2_fcphq"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ltwcj"]
 
@@ -21,7 +22,11 @@ gravity_scale = 4.0
 continuous_cd = true
 script = ExtResource("1_7rblk")
 
+[node name="MeshGenExample" parent="." instance=ExtResource("2_fcphq")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.42630315, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_ltwcj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

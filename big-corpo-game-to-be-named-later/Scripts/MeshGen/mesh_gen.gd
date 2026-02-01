@@ -21,26 +21,37 @@ func _ready() -> void:
 	#texture.load("res://Textures/GMaks.png")
 	#height.load("res://Textures/GHeight.png")
 	
-	texture.load("res://Textures/maaaask.png")
-	height.load("res://Textures/HEEIGHT.png")
-	var color:Image = Image.new()
-	color.load("res://Textures/Imrg.png")
-	
-	mesh.mesh = generate_mesh(texture,height)
+	#texture.load("res://Textures/maaaask.png")
+	#height.load("res://Textures/HEEIGHT.png")
+	#var color:Image = Image.new()
+	#color.load("res://Textures/Imrg.png")
+	#
+	#mesh.mesh = generate_mesh(texture,height, color)
 	
 	#mask_rating.rate_textures(texture,height,texture)
 	#texture.load("res://Textures/GMaks.png")
 	#mask_rating.rate_textures(texture,height,color)
 	pass # Replace with function body.
 	
+func setMesh(amesh):
+	mesh.mesh = amesh
 
 #Matt sends the art here
-func export_bean_mask(maskShape, maskDepth, maskColor):	
+func export_bean_mask(maskShape, maskDepth, maskColor:Image) -> ArrayMesh:
 	var imgtex : ImageTexture = ImageTexture.create_from_image(maskColor)
-	(mesh.material_override as StandardMaterial3D).albedo_texture = imgtex
-	mesh.mesh = generate_mesh(maskShape, maskDepth)
+	
+	#(mesh.material_override as StandardMaterial3D).albedo_texture = imgtex
+	mesh.mesh = generate_mesh(maskShape, maskDepth,maskColor)
+	if(mat == null):
+		mat = StandardMaterial3D.new()
+	mat = mat.duplicate(true)
+	mat.resource_local_to_scene = true
+	mat.albedo_texture = imgtex
+	mesh.mesh.surface_set_material(0, mat)
+	ratings = mask_rating.rate_textures(maskShape,maskDepth,maskColor)
+	return mesh.mesh
 
-func generate_mesh(mask:Image,depth:Image) -> ArrayMesh:
+func generate_mesh(mask:Image,depth:Image,color) -> ArrayMesh:
 	var thickness:float = 5.0
 	#texture.load("res://Textures/GMaks.png")
 	#height.load("res://Textures/GHeight.png")
@@ -53,7 +64,11 @@ func generate_mesh(mask:Image,depth:Image) -> ArrayMesh:
 	var sizx:float = mask.get_size().x-1
 	var sizy:float = mask.get_size().y-1
 	
+
+	
 	stool.begin(Mesh.PRIMITIVE_TRIANGLES)
+	stool.set_material(mat)
+	
 	for x in range(sizx):
 		for y in range(sizy):
 			var c := mask.get_pixel(x,y)

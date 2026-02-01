@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnwqw8556aox4"
+uid="uid://q51derc4wyyo"
 path.s3tc="res://.godot/imported/sanstoneTILE-2mx2m-TRIANGLE_sandstone3-stripes.png-37582787799abf38e0f6b35d29405d64.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "1ecc1165915985e6115ea8eda47607d4"
 }
 
 [deps]

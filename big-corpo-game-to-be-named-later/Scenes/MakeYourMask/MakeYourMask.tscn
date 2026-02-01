@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://caklxqo0drbqa" path="res://Scenes/MeshGenExample.tscn" id="5_0tiwb"]
 [ext_resource type="Texture2D" uid="uid://bgmr5w8m5fn43" path="res://Textures/UI/woodpanelsquare1.png" id="6_ducfl"]
 [ext_resource type="ArrayMesh" uid="uid://lfbeln2loe40" path="res://Models/sanstoneTILE1_Cube.res" id="6_yp5sp"]
-[ext_resource type="Theme" uid="uid://cgvg25kwoey0m" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="7_8ewdo"]
+[ext_resource type="Theme" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="7_8ewdo"]
 [ext_resource type="PackedScene" uid="uid://4un6upeoaxvy" path="res://Models/sanstoneTILE1.glb" id="7_ryyya"]
 
 [sub_resource type="MeshLibrary" id="MeshLibrary_p7jym"]

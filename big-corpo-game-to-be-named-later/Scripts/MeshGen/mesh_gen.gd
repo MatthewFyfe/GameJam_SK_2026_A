@@ -61,7 +61,7 @@ func generate_mesh(mask:Image,depth:Image) -> ArrayMesh:
 			var h10 := depth.get_pixel(x+1,y)
 			var h01 := depth.get_pixel(x,y+1)
 			var h11 := depth.get_pixel(x+1,y+1)
-			if(c.r > 0):
+			if(c.a8 > 20):
 				stool.set_uv(Vector2(x/sizx,y/sizy))
 				stool.add_vertex(Vector3(x-(sizx/2.0),y-(sizy/2.0),h.a*25.0))
 				stool.add_vertex(Vector3(x-(sizx/2.0),y-(sizy/2.0)+1,h01.a*25.0))

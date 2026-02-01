@@ -5,6 +5,7 @@ extends Node3D
 @export var cont_retical_scn:PackedScene
 
 func _ready() -> void:
+	$"../AudioStreamPlayer3D".play()
 	if (len(Input.get_connected_joypads()) < 1):
 		var retical:Retical = retical_scn.instantiate()
 		var player:Player = player_scn.instantiate()

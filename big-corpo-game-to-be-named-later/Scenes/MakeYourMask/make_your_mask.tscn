@@ -84,6 +84,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -90.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -99,7 +100,7 @@ offset_left = 67.0
 offset_top = 2.0
 offset_right = 323.0
 offset_bottom = 412.0
-expand_mode = 2
+expand_mode = 4
 
 [node name="PainterCanvas" parent="Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control" node_paths=PackedStringArray("current_color_rect") instance=ExtResource("6_l41ql")]
 layout_mode = 1

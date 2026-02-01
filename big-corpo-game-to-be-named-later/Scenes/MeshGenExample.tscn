@@ -14,9 +14,6 @@ mat = SubResource("StandardMaterial3D_fn4vq")
 mask_rating = NodePath("Node")
 bean_container = NodePath("BeanBoiSceene")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.77364117, 0.63362396, 0, -0.63362396, 0.77364117, 0, 0, 0)
-
 [node name="BeanBoiSceene" parent="." instance=ExtResource("2_fn4vq")]
 
 [node name="Node" type="Node" parent="."]

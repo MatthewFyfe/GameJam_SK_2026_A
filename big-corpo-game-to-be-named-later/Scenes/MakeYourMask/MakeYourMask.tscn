@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ciehhml8pkd35"]
+[gd_scene load_steps=13 format=3 uid="uid://ciehhml8pkd35"]
 
 [ext_resource type="Script" uid="uid://bglw8b81wkuao" path="res://Scenes/MakeYourMask/make_your_mask.gd" id="1_217l0"]
 [ext_resource type="PackedScene" uid="uid://c1gjn276iqw6q" path="res://Scenes/MakeYourMask/Prefabs/PainterCanvas.tscn" id="1_iydgg"]
@@ -7,21 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://b4vmgtot8i7x" path="res://Textures/brish9.png" id="4_ryyya"]
 [ext_resource type="PackedScene" uid="uid://caklxqo0drbqa" path="res://Scenes/MeshGenExample.tscn" id="5_0tiwb"]
 [ext_resource type="Texture2D" uid="uid://bgmr5w8m5fn43" path="res://Textures/UI/woodpanelsquare1.png" id="6_ducfl"]
-[ext_resource type="ArrayMesh" uid="uid://lfbeln2loe40" path="res://Models/sanstoneTILE1_Cube.res" id="6_yp5sp"]
-[ext_resource type="Theme" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="7_8ewdo"]
-[ext_resource type="PackedScene" uid="uid://4un6upeoaxvy" path="res://Models/sanstoneTILE1.glb" id="7_ryyya"]
+[ext_resource type="Theme" uid="uid://cgvg25kwoey0m" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="7_8ewdo"]
 [ext_resource type="Texture2D" uid="uid://c2dpngri7ng6t" path="res://Textures/UI/woodpanelsquare1_hover.png" id="8_dlbj7"]
 [ext_resource type="Texture2D" uid="uid://dga1fjmly8a6e" path="res://Textures/UI/woodpanelsquare1_warm.png" id="8_tahyh"]
 [ext_resource type="Texture2D" uid="uid://bchlgdja5fr47" path="res://Textures/UI/woodpanelsquare1_disabled.png" id="9_tahyh"]
-
-[sub_resource type="MeshLibrary" id="MeshLibrary_p7jym"]
-item/0/name = ""
-item/0/mesh = ExtResource("6_yp5sp")
-item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-item/0/mesh_cast_shadow = 1
-item/0/shapes = []
-item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-item/0/navigation_layers = 1
+[ext_resource type="PackedScene" uid="uid://yit028ns055k" path="res://Models/customizearea1.glb" id="12_8uyf6"]
 
 [node name="MakeYourMask" type="Node3D" node_paths=PackedStringArray("painter_image", "PBack_image", "Palette_grid_container", "MeshGen_ref", "ButtonDoneMask", "ButtonDoneHeight", "ButtonDonePaint")]
 script = ExtResource("1_217l0")
@@ -162,19 +152,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23, 0, 3.031)
 [node name="Node3D" parent="Control/MeshGenExample" index="2"]
 transform = Transform3D(0.8746197, 0, -0.4848096, 0, 1, 0, 0.4848096, 0, 0.8746197, 0, 0, 0)
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.115, 0)
-
-[node name="GridMap" type="GridMap" parent="Node3D"]
-mesh_library = SubResource("MeshLibrary_p7jym")
-cell_size = Vector3(2, 1, 2)
-data = {
-"cells": PackedInt32Array(-131072, 65535, 0, -65537, 65535, 0, -65538, 65535, 0, -65539, 65535, 0, -131071, 65535, 0, -131070, 65535, 0, -131070, 65534, 0, -131071, 65534, 0, -131071, 65533, 0, -131072, 65533, 0, -65537, 65533, 0, -65538, 65533, 0, -65539, 65533, 0, -65539, 65534, 0, -65538, 65534, 0, -65537, 65534, 0, -131072, 65534, 0, -131070, 65533, 0, -131072, 65532, 0, -65537, 65532, 0, -65538, 65532, 0, -65539, 65532, 0, -131071, 65532, 0, -131070, 65532, 0, -131070, 65531, 0, -131069, 65531, 0, -131069, 65532, 0, -131069, 65533, 0, -131069, 65534, 0, -131069, 65535, 0, -65540, 65535, 0, -65540, 65534, 0, -65540, 65533, 0, -65540, 65532, 0, -131068, 65534, 0, -131068, 65533, 0, -131068, 65535, 0, -131070, 0, 0, -131071, 0, 0, -131072, 0, 0, -65537, 0, 0, -65538, 0, 0, -65539, 0, 0, -131068, 0, 0, -131069, 0, 0, -65541, 65535, 0, -65540, 0, 0, -4, 65534, 0, -3, 65534, 0, -2, 65534, 0, -1, 65534, 0, -65536, 65534, 0, -65535, 65534, 0, -65534, 65534, 0, -65533, 65534, 0, -65532, 65534, 0, 65532, 65534, 0, 65533, 65534, 0, 65534, 65534, 0, 65535, 65534, 0, 0, 65534, 0, 1, 65534, 0, 2, 65534, 0, 3, 65534, 0, 4, 65534, 0, 131068, 65534, 0, 131069, 65534, 0, 131070, 65534, 0, 131071, 65534, 0, 65536, 65533, 0, 65537, 65533, 0, 65537, 65534, 0, 65538, 65534, 0, 65539, 65534, 0, 65540, 65534, 0, 65536, 65534, 0, 196604, 65534, 0, 196605, 65534, 0, 196606, 65534, 0, 196607, 65534, 0, 131072, 65534, 0, 131073, 65534, 0, 131074, 65534, 0, 131075, 65534, 0, 131076, 65534, 0, 262140, 65534, 0, 262141, 65534, 0, 262142, 65534, 0, 262143, 65534, 0, 196608, 65533, 0, 196609, 65533, 0, 196609, 65534, 0, 196610, 65534, 0, 196611, 65534, 0, 196612, 65534, 0, 196608, 65534, 0, 327676, 65534, 0, 327677, 65534, 0, 327678, 65534, 0, 327679, 65534, 0, 262144, 65534, 0, 262145, 65534, 0, 262146, 65534, 0, 262146, 65533, 0, 262147, 65534, 0, 262148, 65534, 0, 327675, 65534, 524288, 262139, 65534, 524288, 196603, 65534, 524288, 131067, 65534, 524288, 65531, 65534, 524288, -5, 65534, 524288, -65541, 65534, 524288, -65541, 0, 524288)
-}
-metadata/_editor_floor_ = Vector3(0, -2, 0)
-
-[node name="sanstoneTILE1" parent="Node3D" instance=ExtResource("7_ryyya")]
-visible = false
+[node name="customizearea" parent="." instance=ExtResource("12_8uyf6")]
+transform = Transform3D(-1.8140225e-08, 0, 0.415, 0, 0.415, 0, -0.415, 0, -1.8140225e-08, 4.115, -1.68, -15.655)
 
 [connection signal="value_changed" from="Control/PaintPalette/Panel/HSlider" to="Control/PainterCanvas" method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Control/Button_DoneMask" to="." method="_on_button_done_mask_pressed"]

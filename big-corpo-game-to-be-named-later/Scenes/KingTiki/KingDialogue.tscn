@@ -46,6 +46,7 @@ offset_top = -83.33331
 offset_right = 369.99994
 offset_bottom = 86.66666
 theme = ExtResource("5_rlwjo")
+theme_override_font_sizes/font_size = 55
 text = "Since Godot 4.0, the random seed is automatically set to a random value when the project starts. This means you don't need to call randomize() in _ready() anymore to ensure that results are random across project runs. However, you can still use randomize() if you want to use a specific seed number, or generate it using a different method."
 horizontal_alignment = 1
 vertical_alignment = 1

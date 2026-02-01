@@ -5,6 +5,7 @@ extends Node3D
 @export var cont_retical_scn:PackedScene
 
 func _ready() -> void:
+	$"../AudioStreamPlayer3D".play()
 	if (len(Input.get_connected_joypads()) < 1):
 		var retical:Retical = retical_scn.instantiate()
 		var player:Player = player_scn.instantiate()
@@ -28,5 +29,10 @@ func _ready() -> void:
 			player.rescale_stats()
 
 func _process(delta: float) -> void:
-	if(GlobalPlayerData.PlayersAlive == 0):
+	if(GlobalPlayerData.PlayersAlive == 0 && not $Control.visible):
 		$Control.show()
+		$Control/Label.text = "Player "+str(GlobalPlayerData.LastPlayerToDie)+" won!!!"
+		$Control/Button.pressed.connect(on_to_main_menu_clicked)
+
+func on_to_main_menu_clicked():
+	get_tree().change_scene_to_file("res://Scenes/MainMenu/main_menu.tscn")

@@ -8,3 +8,26 @@ func _ready() -> void:
 func button_start() -> void:
 	#get_tree().change_scene_to_file("res://Scenes/GameScene.tscn")
 	get_tree().change_scene_to_file("res://Scenes/MakeYourMask/MakeYourMask1P.tscn")
+
+
+func _on_start_button_2p_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/MakeYourMask/MakeYourMask2P.tscn")
+	pass # Replace with function body.
+
+
+func _on_start_button_2p_2_pressed() -> void:
+	
+	get_tree().change_scene_to_file("res://Scenes/MakeYourMask/MakeYourMask4P.tscn")
+	pass # Replace with function body.
+
+
+
+
+func _on_start_button_2p_3_pressed() -> void:
+	$Control/TextureButton.show()
+	pass # Replace with function body.
+
+
+func _on_texture_button_pressed() -> void:
+	$Control/TextureButton.hide()
+	pass # Replace with function body.

@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://di7pvtkyro6u"]
+[gd_scene load_steps=12 format=3 uid="uid://di7pvtkyro6u"]
 
 [ext_resource type="Script" uid="uid://rh1jmqlkko1r" path="res://Alex_Battle_Stuff/game_manager.gd" id="1_4rxto"]
 [ext_resource type="PackedScene" uid="uid://bf8cl4l3m71ww" path="res://Alex_Battle_Stuff/player_2D.tscn" id="1_25nfd"]
 [ext_resource type="PackedScene" uid="uid://drcbwmjb4v3ns" path="res://Alex_Battle_Stuff/retical.tscn" id="2_cph7k"]
 [ext_resource type="PackedScene" uid="uid://beitgmhiahyed" path="res://Alex_Battle_Stuff/conrtoller_retical.tscn" id="4_6ukcn"]
 [ext_resource type="Texture2D" uid="uid://bpd8h4hydi2um" path="res://Textures/UI/BattleBackground/battle-scene-background-blurred.png" id="5_qc18h"]
+[ext_resource type="Theme" uid="uid://cgvg25kwoey0m" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="6_dguhl"]
+[ext_resource type="AudioStream" uid="uid://c2kbuhg6dwid0" path="res://music/Mean Bean Machine Final.mp3" id="7_k507e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5fowf"]
 size = Vector3(20, 2.8, 3.1000001)
@@ -53,6 +55,37 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_qc18h")
 expand_mode = 2
+
+[node name="Label" type="Label" parent="GameManager/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.5
+offset_top = -120.75
+offset_right = 237.5
+offset_bottom = 120.75
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_dguhl")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+theme_override_font_sizes/font_size = 200
+text = "Player __ Won!"
+
+[node name="Button" type="Button" parent="GameManager/Control"]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 407.0
+offset_right = 768.0
+offset_bottom = 649.0
+theme = ExtResource("6_dguhl")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+text = "Return To Main Menu"
+icon_alignment = 1
 
 [node name="stage" type="RigidBody3D" parent="." groups=["terrain"]]
 gravity_scale = 0.0
@@ -135,3 +168,6 @@ freeze = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, -66, 1)
 shape = SubResource("BoxShape3D_cph7k")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_k507e")

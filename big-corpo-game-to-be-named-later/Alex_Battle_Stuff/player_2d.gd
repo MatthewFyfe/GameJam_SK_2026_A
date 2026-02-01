@@ -182,6 +182,8 @@ func deal_damage(taken: float) -> void:
 	current_health -= taken
 	$Label3D.Update(current_health)
 	if (current_health <= 0):
+		GlobalPlayerData.PlayersAlive -= 1
+		GlobalPlayerData.LastPlayerToDie = player_ID
 		self.queue_free()
 
 func rescale_stats() -> void:
@@ -190,7 +192,7 @@ func rescale_stats() -> void:
 	max_speed = 50 + (Equine * 5) - (Appropriation * 6) - (Girth * 5)
 	max_jumps = 2 + roundi(Chutzpah)
 	friction = 90 + (Equine * 12)
-	bullet_velocity =  5 - (Kitsch * 20) - (Intelligence * 10) + (Misnomer * 100)
+	bullet_velocity =  20 - (Kitsch * 20) - (Intelligence * 10) + (Misnomer * 80)
 	shot_delay = 0.8 - (Kitsch * 0.1) - (Mercator * 0.5)
 	max_health = 200 + (Historical_materialism * 20) - (Misanthropy * 25) + (Green * 40) + (Girth * 30)
 	current_health = max_health

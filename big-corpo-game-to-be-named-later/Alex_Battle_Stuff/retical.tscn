@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://drcbwmjb4v3ns"]
+
+[ext_resource type="Script" uid="uid://d24nskrp776cj" path="res://retical.gd" id="1_iop3a"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_iop3a"]
+
+[node name="retical" type="Node3D"]
+script = ExtResource("1_iop3a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_iop3a")

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bf8cl4l3m71ww"]
+
+[ext_resource type="Script" uid="uid://shn06ljruxmr" path="res://Alex_Battle_Stuff/player_2d.gd" id="1_7rblk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ltwcj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7rblk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7rblk"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fcphq"]
+size = Vector3(1.4, 2.4, 1.4)
+
+[node name="Player2d" type="RigidBody3D" groups=["player"]]
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 4.0
+continuous_cd = true
+script = ExtResource("1_7rblk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_ltwcj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_7rblk")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9802322e-08, -0.70000005, -2.9802322e-08)
+shape = SubResource("BoxShape3D_7rblk")
+
+[node name="Area3D2" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 5.9604645e-08)
+shape = SubResource("BoxShape3D_fcphq")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="Area3D2" to="." method="_on_area_3d_2_body_entered"]

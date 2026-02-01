@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://xkis75il1tk8"]
+
+[ext_resource type="Texture2D" uid="uid://bgdrwsl6dwwig" path="res://Textures/UI/woodpanel1.png" id="1_kdjhy"]
+[ext_resource type="Script" uid="uid://lnllg12k8jvj" path="res://health_bar.gd" id="1_m7ell"]
+
+[sub_resource type="Gradient" id="Gradient_srckl"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1r8bn"]
+gradient = SubResource("Gradient_srckl")
+fill_from = Vector2(0, 0.43564355)
+fill_to = Vector2(1, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 326.0
+offset_top = 52.0
+offset_right = 798.0
+offset_bottom = 524.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+texture_over = ExtResource("1_kdjhy")
+texture_progress = SubResource("GradientTexture2D_1r8bn")
+script = ExtResource("1_m7ell")
+
+[node name="SubViewport" type="SubViewport" parent="."]

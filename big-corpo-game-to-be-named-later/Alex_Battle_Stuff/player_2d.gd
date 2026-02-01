@@ -155,27 +155,28 @@ func deal_damage(taken: float) -> void:
 		self.queue_free()
 
 func rescale_stats() -> void:
-	jump_force = 40 + (Mirth * 5) - (Chutzpah * 4)
+	jump_force = 40 + (Mirth * 10)
 	acceleration = 200 + (Equine * 20) - (Appropriation * 24) - (Girth * 20)
 	max_speed = 50 + (Equine * 5) - (Appropriation * 6) - (Girth * 5)
-	max_jumps = 2 + roundi(Mirth) + roundi(Chutzpah)
+	max_jumps = 2 + roundi(Chutzpah)
 	friction = 90 + (Equine * 12)
-	bullet_velocity = 30 + (Kitsch * 2) + (Mercator * 5) + (Intelligence * 10) + (Marketability * 5) - (Misnomer * 10)
-	shot_delay = 0.8 - (Kitsch * 0.1) - (Mercator * 0.2) + (Fatherhood * 0.1) + (Intelligence * 0.1) - (Marketability * 0.2)
+	bullet_velocity =  5 - (Kitsch * 20) - (Intelligence * 10) + (Misnomer * 100)
+	shot_delay = 0.8 - (Kitsch * 0.1) - (Mercator * 0.5)
 	max_health = 200 + (Historical_materialism * 20) - (Misanthropy * 25) + (Green * 40) + (Girth * 30)
+	current_health = max_health
 	damage = 20 - (Mirth * 4) + (Misanthropy * 5) - (Green * 3) + (Kitsch * 1) + (Fatherhood * 4) + (Appropriation * 4) - (Marketability * 4) + (Misnomer * 15)
 	accuracy = 1 + (Perspicacity * 0.2) - (Historical_materialism * 0.05) - (Equine * 0.05) - (Kitsch * 0.05) - (Mercator * 0.05)
 	
-	print(jump_force)
-	print(acceleration)
-	print(max_speed)
-	print(max_jumps)
-	print(friction)
-	print(bullet_velocity)
-	print(shot_delay)
-	print(max_health)
-	print(damage)
-	print(accuracy)
+	print("Jump Force: " + String.num(jump_force))
+	print("Acceleration: " + String.num(acceleration))
+	print("Max Speed: " + String.num(max_speed))
+	print("Max Jumps: " + String.num(max_jumps))
+	print("Friction: " + String.num(friction))
+	print("Bullet Velocity: " + String.num(bullet_velocity))
+	print("Shot Delay: " + String.num(shot_delay))
+	print("Max Health: " + String.num(max_health))
+	print("Damage: " + String.num(damage))
+	print("Accuracy: " + String.num(accuracy))
 
 func _on_area_3d_body_entered(body: Node):
 	if (body.is_in_group("terrain")):

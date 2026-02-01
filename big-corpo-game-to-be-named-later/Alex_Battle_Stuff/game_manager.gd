@@ -26,3 +26,7 @@ func _ready() -> void:
 			
 			player.controller_retical = Cont
 			player.rescale_stats()
+
+func _process(delta: float) -> void:
+	if(GlobalPlayerData.PlayersAlive == 0):
+		$Control.show()

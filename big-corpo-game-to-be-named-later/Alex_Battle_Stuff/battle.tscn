@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://di7pvtkyro6u"]
+[gd_scene load_steps=10 format=3 uid="uid://di7pvtkyro6u"]
 
 [ext_resource type="Script" uid="uid://rh1jmqlkko1r" path="res://Alex_Battle_Stuff/game_manager.gd" id="1_4rxto"]
 [ext_resource type="PackedScene" uid="uid://bf8cl4l3m71ww" path="res://Alex_Battle_Stuff/player_2D.tscn" id="1_25nfd"]
 [ext_resource type="PackedScene" uid="uid://drcbwmjb4v3ns" path="res://Alex_Battle_Stuff/retical.tscn" id="2_cph7k"]
 [ext_resource type="PackedScene" uid="uid://beitgmhiahyed" path="res://Alex_Battle_Stuff/conrtoller_retical.tscn" id="4_6ukcn"]
+[ext_resource type="Texture2D" uid="uid://bpd8h4hydi2um" path="res://Textures/UI/BattleBackground/battle-scene-background-blurred.png" id="5_qc18h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5fowf"]
 size = Vector3(20, 2.8, 3.1000001)
@@ -25,6 +26,33 @@ script = ExtResource("1_4rxto")
 player_scn = ExtResource("1_25nfd")
 retical_scn = ExtResource("2_cph7k")
 cont_retical_scn = ExtResource("4_6ukcn")
+
+[node name="Control" type="Control" parent="GameManager"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameManager/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="GameManager/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_qc18h")
+expand_mode = 2
 
 [node name="stage" type="RigidBody3D" parent="." groups=["terrain"]]
 gravity_scale = 0.0

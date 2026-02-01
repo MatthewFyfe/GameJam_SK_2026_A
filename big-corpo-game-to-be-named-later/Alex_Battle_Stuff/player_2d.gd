@@ -181,6 +181,8 @@ func move(delta: float) -> void:
 func deal_damage(taken: float) -> void:
 	current_health -= taken
 	if (current_health <= 0):
+		GlobalPlayerData.PlayersAlive -= 1
+		GlobalPlayerData.LastPlayerToDie = player_ID
 		self.queue_free()
 
 func rescale_stats() -> void:

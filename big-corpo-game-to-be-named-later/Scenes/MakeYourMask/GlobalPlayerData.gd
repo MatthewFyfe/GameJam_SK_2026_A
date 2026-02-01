@@ -9,3 +9,5 @@ var MaxPlayers:int = 1
 var playersSubmitted:int = 0
 
 var PlayersAlive:int = 0
+
+var LastPlayerToDie:int = 0

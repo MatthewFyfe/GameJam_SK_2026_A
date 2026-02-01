@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://beitgmhiahyed" path="res://Alex_Battle_Stuff/conrtoller_retical.tscn" id="4_cuwm1"]
 [ext_resource type="PackedScene" uid="uid://drcbwmjb4v3ns" path="res://Alex_Battle_Stuff/retical.tscn" id="4_k507e"]
 [ext_resource type="MeshLibrary" uid="uid://clhys6eg3i6uw" path="res://Alex_Battle_Stuff/MeshLibraryfeb1_2.tres" id="5_cuwm1"]
-[ext_resource type="AudioStream" uid="uid://dtol7ublvju1j" path="res://music/Mean Bean Machine Final.mp3" id="6_rkafq"]
+[ext_resource type="AudioStream" uid="uid://3tdqw0arcmv3" path="res://music/Mean Bean Machine Final.mp3" id="6_rkafq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5fowf"]
 size = Vector3(20, 2.8, 3.1000001)
@@ -202,3 +202,11 @@ mesh = SubResource("BoxMesh_4rxto")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_rkafq")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Node3D2" type="Node3D" parent="."]
+
+[node name="Node3D3" type="Node3D" parent="."]
+
+[node name="Node3D4" type="Node3D" parent="."]

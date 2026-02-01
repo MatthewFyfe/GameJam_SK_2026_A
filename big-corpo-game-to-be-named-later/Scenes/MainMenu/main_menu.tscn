@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://mnccodstjw4w"]
+[gd_scene load_steps=9 format=3 uid="uid://mnccodstjw4w"]
 
 [ext_resource type="Script" uid="uid://clgvkkfq0b5rn" path="res://Scenes/MainMenu/main_menu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://bwad6w4ayiub0" path="res://Textures/TitleScreen/logo.png" id="2_v763k"]
-[ext_resource type="Theme" uid="uid://cgvg25kwoey0m" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="3_adu2g"]
+[ext_resource type="VideoStream" uid="uid://b1it1k3oqrwh8" path="res://Screenshots/output3.ogv" id="3_2r307"]
+[ext_resource type="Theme" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="3_adu2g"]
 [ext_resource type="Texture2D" uid="uid://dga1fjmly8a6e" path="res://Textures/UI/woodpanelsquare1_warm.png" id="4_n5jej"]
 [ext_resource type="Texture2D" uid="uid://bgmr5w8m5fn43" path="res://Textures/UI/woodpanelsquare1.png" id="5_0l8wx"]
 [ext_resource type="Texture2D" uid="uid://byc4ifk1ggx6t" path="res://Textures/UI/woodpanelsquare1_hover.png" id="5_2r307"]
@@ -36,6 +37,15 @@ size_flags_vertical = 3
 texture = ExtResource("2_v763k")
 expand_mode = 4
 stretch_mode = 4
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control/VBoxContainer/MainMenuSplash"]
+layout_mode = 0
+offset_left = -109.0
+offset_top = 7.0
+offset_right = 851.0
+offset_bottom = 547.0
+stream = ExtResource("3_2r307")
+autoplay = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2

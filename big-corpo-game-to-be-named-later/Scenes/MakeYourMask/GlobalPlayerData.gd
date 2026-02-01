@@ -1,6 +1,8 @@
 extends Node
 
-var PlayerData:Array = [[],[],[],[],[],[],[],[]]
+var PlayerData:Array[ArrayMesh] = [null,null,null,null,null,null,null,null]
+
+var PlayerScores:Array[Array] = [[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
 
 var MaxPlayers:int = 1
 

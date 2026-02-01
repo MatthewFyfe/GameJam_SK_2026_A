@@ -64,9 +64,9 @@ func _on_button_done_painting_pressed() -> void:
 	#save this image as the color texture
 	paintedMask = painter_image.img.duplicate()
 	
-	GlobalPlayerData.PlayerData[PlayerNo].append(
-		MeshGen_ref.export_bean_mask(baseMask, heightMapMask, paintedMask))
-		
+	GlobalPlayerData.PlayerData[PlayerNo]=MeshGen_ref.export_bean_mask(baseMask, heightMapMask, paintedMask)
+	GlobalPlayerData.PlayerScores[PlayerNo] = MeshGen_ref.ratings
+	
 	GlobalPlayerData.playersSubmitted += 1
 	
 	if(GlobalPlayerData.playersSubmitted >= GlobalPlayerData.MaxPlayers):

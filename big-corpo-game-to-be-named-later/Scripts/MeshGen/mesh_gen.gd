@@ -48,6 +48,7 @@ func export_bean_mask(maskShape, maskDepth, maskColor:Image) -> ArrayMesh:
 	mat.resource_local_to_scene = true
 	mat.albedo_texture = imgtex
 	mesh.mesh.surface_set_material(0, mat)
+	ratings = mask_rating.rate_textures(maskShape,maskDepth,maskColor)
 	return mesh.mesh
 
 func generate_mesh(mask:Image,depth:Image,color) -> ArrayMesh:

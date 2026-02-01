@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://clgvkkfq0b5rn" path="res://Scenes/MainMenu/main_menu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://bwad6w4ayiub0" path="res://Textures/TitleScreen/logo.png" id="2_v763k"]
-[ext_resource type="Theme" uid="uid://cgvg25kwoey0m" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="3_adu2g"]
+[ext_resource type="Theme" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="3_adu2g"]
 [ext_resource type="Texture2D" uid="uid://dga1fjmly8a6e" path="res://Textures/UI/woodpanelsquare1_warm.png" id="4_n5jej"]
 [ext_resource type="Texture2D" uid="uid://bgmr5w8m5fn43" path="res://Textures/UI/woodpanelsquare1.png" id="5_0l8wx"]
 [ext_resource type="Texture2D" uid="uid://byc4ifk1ggx6t" path="res://Textures/UI/woodpanelsquare1_hover.png" id="5_2r307"]
@@ -16,10 +16,11 @@ zoom = Vector2(0.75, 0.75)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
@@ -31,14 +32,15 @@ grow_vertical = 2
 
 [node name="MainMenuSplash" type="TextureRect" parent="Control/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 3
 texture = ExtResource("2_v763k")
+expand_mode = 4
+stretch_mode = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 6
 
 [node name="StartButton_1P" type="TextureButton" parent="Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2

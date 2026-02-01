@@ -39,7 +39,7 @@ func _ready() -> void:
 			living_players[i] = player
 
 func _process(delta: float) -> void:
-	if(GlobalPlayerData.PlayersAlive == 1):
+	if(GlobalPlayerData.PlayersAlive == 1 and GlobalPlayerData.MaxPlayers != 1):
 		timer += delta
 		if (timer > 1.5):
 			for i in living_players:

@@ -26,12 +26,13 @@ size = Vector3(16.589828, 164.95007, 5.146382)
 [node name="Battle" type="Node3D"]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="GameManager" type="Node3D" parent="."]
+[node name="GameManager" type="Node3D" parent="." node_paths=PackedStringArray("Spawn_Points")]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 4.9999995, 0)
 script = ExtResource("1_6ukcn")
 player_scn = ExtResource("2_qc18h")
 retical_scn = ExtResource("4_k507e")
 cont_retical_scn = ExtResource("4_cuwm1")
+Spawn_Points = [NodePath("../Spawns/Spawn1"), NodePath("../Spawns/Spawn2"), NodePath("../Spawns/Spawn3"), NodePath("../Spawns/Spawn4")]
 
 [node name="GridMap" type="GridMap" parent="." groups=["terrain"]]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 4, -1.12)
@@ -203,10 +204,17 @@ mesh = SubResource("BoxMesh_4rxto")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_rkafq")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Spawns" type="Node3D" parent="."]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 19.140718, -9.392371, 0)
 
-[node name="Node3D2" type="Node3D" parent="."]
+[node name="Spawn1" type="Node3D" parent="Spawns"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -51.37056, -12.0326605, 0)
 
-[node name="Node3D3" type="Node3D" parent="."]
+[node name="Spawn2" type="Node3D" parent="Spawns"]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 11.030222, -7.854789, 0)
 
-[node name="Node3D4" type="Node3D" parent="."]
+[node name="Spawn3" type="Node3D" parent="Spawns"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -24.617628, 3.5497642, 3.8146973e-06)
+
+[node name="Spawn4" type="Node3D" parent="Spawns"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)

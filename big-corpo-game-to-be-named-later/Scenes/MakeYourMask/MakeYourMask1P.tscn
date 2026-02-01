@@ -1,6 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxte0ot3ybr4c"]
+[gd_scene load_steps=8 format=3 uid="uid://bxte0ot3ybr4c"]
 
 [ext_resource type="PackedScene" uid="uid://dwg8sh5aro3nw" path="res://Scenes/MakeYourMask/make_your_mask.tscn" id="1_efrf7"]
+[ext_resource type="Texture2D" uid="uid://sfsbq5m3chuj" path="res://Textures/Imrg.png" id="2_wd4ts"]
+[ext_resource type="PackedScene" uid="uid://fruip0iyihtc" path="res://Scenes/MusicPlayer/MusicPlayer.tscn" id="3_1mah2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7t01g"]
+resource_local_to_scene = true
+cull_mode = 2
+albedo_texture = ExtResource("2_wd4ts")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_05pkr"]
 sky_top_color = Color(0.41666114, 0.58041424, 0.985725, 1)
@@ -12,9 +19,15 @@ sky_material = SubResource("ProceduralSkyMaterial_05pkr")
 background_mode = 2
 sky = SubResource("Sky_ko8r4")
 
-[node name="MakeYourMask" type="Node3D"]
+[node name="MakeYourMask2" type="Node3D"]
 
 [node name="MakeYourMask" parent="." instance=ExtResource("1_efrf7")]
+playsAudio = true
+
+[node name="MeshInstance3D" parent="MakeYourMask/MeshGenExample/BeanBoiSceene" index="1"]
+material_override = SubResource("StandardMaterial3D_7t01g")
+
+[node name="MusicPlayer" parent="MakeYourMask" instance=ExtResource("3_1mah2")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)

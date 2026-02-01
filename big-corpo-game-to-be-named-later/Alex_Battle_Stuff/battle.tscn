@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://beitgmhiahyed" path="res://Alex_Battle_Stuff/conrtoller_retical.tscn" id="4_6ukcn"]
 [ext_resource type="Texture2D" uid="uid://bpd8h4hydi2um" path="res://Textures/UI/BattleBackground/battle-scene-background-blurred.png" id="5_qc18h"]
 [ext_resource type="Theme" uid="uid://cgvg25kwoey0m" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="6_dguhl"]
-[ext_resource type="AudioStream" uid="uid://dtol7ublvju1j" path="res://music/Mean Bean Machine Final.mp3" id="7_k507e"]
+[ext_resource type="AudioStream" uid="uid://3tdqw0arcmv3" path="res://music/Mean Bean Machine Final.mp3" id="7_k507e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5fowf"]
 size = Vector3(20, 2.8, 3.1000001)

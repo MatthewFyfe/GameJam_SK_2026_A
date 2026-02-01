@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxte0ot3ybr4c"]
+[gd_scene load_steps=9 format=3 uid="uid://bxte0ot3ybr4c"]
 
 [ext_resource type="PackedScene" uid="uid://dwg8sh5aro3nw" path="res://Scenes/MakeYourMask/make_your_mask.tscn" id="1_efrf7"]
 [ext_resource type="Texture2D" uid="uid://sfsbq5m3chuj" path="res://Textures/Imrg.png" id="2_wd4ts"]
 [ext_resource type="PackedScene" uid="uid://fruip0iyihtc" path="res://Scenes/MusicPlayer/MusicPlayer.tscn" id="3_1mah2"]
+[ext_resource type="PackedScene" uid="uid://pe07bathr5jj" path="res://Scenes/KingTiki/KingDialogue.tscn" id="4_1mah2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7t01g"]
 resource_local_to_scene = true
@@ -27,14 +28,14 @@ playsAudio = true
 [node name="MeshInstance3D" parent="MakeYourMask/MeshGenExample/BeanBoiSceene" index="1"]
 material_override = SubResource("StandardMaterial3D_7t01g")
 
+[node name="KingDialogue" parent="MakeYourMask/Player1/VBoxContainer/HBoxContainer2/PaintPalette/Panel" index="3" instance=ExtResource("4_1mah2")]
+position = Vector2(27, 294)
+
 [node name="BeanCanvas2" parent="MakeYourMask/Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control" index="0"]
 offset_left = 7.0
 offset_top = 4.0
 offset_right = 348.0
 offset_bottom = 418.0
-
-[node name="PBackCanvas2" parent="MakeYourMask/Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control" index="1"]
-expand_mode = 4
 
 [node name="PainterCanvas" parent="MakeYourMask/Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control" index="2"]
 anchors_preset = 15
@@ -46,10 +47,6 @@ offset_right = -229.0
 offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-expand_mode = 4
-stretch_mode = 0
 
 [node name="MusicPlayer" parent="MakeYourMask" instance=ExtResource("3_1mah2")]
 

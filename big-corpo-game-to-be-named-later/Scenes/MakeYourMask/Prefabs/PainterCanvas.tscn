@@ -5,9 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://beuemts7icii3" path="res://Textures/brish.png" id="3_8ql5u"]
 
 [node name="TextureRect" type="TextureRect"]
-offset_right = 40.0
-offset_bottom = 40.0
-stretch_mode = 2
+offset_right = 263.0
+offset_bottom = 427.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 4
 script = ExtResource("1_t41jv")
 stamp = ExtResource("2_8ql5u")
 mask = ExtResource("2_8ql5u")

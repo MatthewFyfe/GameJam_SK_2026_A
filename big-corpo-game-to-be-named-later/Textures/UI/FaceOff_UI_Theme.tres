@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cgvg25kwoey0m"]
+
+[ext_resource type="Texture2D" uid="uid://bgmr5w8m5fn43" path="res://Textures/UI/woodpanelsquare1.png" id="1_ivd50"]
+[ext_resource type="FontFile" uid="uid://gqhwbdjlxx5c" path="res://Fonts/chinese_rocks/chinese rocks rg.otf" id="1_jdr8o"]
+
+[resource]
+Button/fonts/font = ExtResource("1_jdr8o")
+Button/icons/icon = ExtResource("1_ivd50")
+Label/colors/font_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("1_jdr8o")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)

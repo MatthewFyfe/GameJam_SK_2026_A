@@ -1,0 +1,10 @@
+extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+func button_start() -> void:
+	#get_tree().change_scene_to_file("res://Scenes/GameScene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/MakeYourMask/MakeYourMask.tscn")

@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciehhml8pkd35"]
+
+[ext_resource type="Script" uid="uid://bglw8b81wkuao" path="res://Scenes/MakeYourMask/make_your_mask.gd" id="1_217l0"]
+[ext_resource type="PackedScene" uid="uid://c1gjn276iqw6q" path="res://Scenes/MakeYourMask/Prefabs/PainterCanvas.tscn" id="1_iydgg"]
+[ext_resource type="Texture2D" uid="uid://r2eljl4ycp60" path="res://Screenshots/Screenshot_20260131_133222.png" id="2_rr3f8"]
+[ext_resource type="PackedScene" uid="uid://bx0qar1udm4ld" path="res://Scenes/MakeYourMask/Prefabs/PaintPalette.tscn" id="2_s3r2p"]
+
+[node name="MakeYourMask" type="Node3D" node_paths=PackedStringArray("painter_image", "PBack_image")]
+script = ExtResource("1_217l0")
+painter_image = NodePath("Control/PainterCanvas")
+PBack_image = NodePath("Control/PBackCanvas")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BeanCanvas" type="Sprite2D" parent="Control"]
+position = Vector2(300, 256)
+texture = ExtResource("2_rr3f8")
+
+[node name="PBackCanvas" type="Sprite2D" parent="Control"]
+position = Vector2(300, 256)
+
+[node name="PainterCanvas" parent="Control" node_paths=PackedStringArray("current_color_rect") instance=ExtResource("1_iydgg")]
+position = Vector2(300, 256)
+current_color_rect = NodePath("../PaintPalette/Panel/CurrentPaintColor")
+canvas_bg = Color(0.50140655, 0.5014065, 0.5014065, 0.25882354)
+canvas_bg2 = Color(0.099985994, 0.099985994, 0.099985994, 0.25882354)
+canvas_bg3 = Color(0, 0, 0, 0.25882354)
+
+[node name="PaintPalette" parent="Control" instance=ExtResource("2_s3r2p")]
+layout_mode = 1
+
+[node name="GridContainer" parent="Control/PaintPalette/Panel" index="2" node_paths=PackedStringArray("painter_image", "current_color_rect")]
+painter_image = NodePath("../../../PainterCanvas")
+current_color_rect = NodePath("../CurrentPaintColor")
+
+[node name="Button_DoneMask" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 460.0
+offset_top = 577.0
+offset_right = 555.0
+offset_bottom = 608.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Done Mask"
+
+[node name="Button_DoneHeightMap" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 760.0
+offset_top = 577.0
+offset_right = 899.0
+offset_bottom = 608.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Done Heightmap"
+
+[node name="Button_DonePainting" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 995.0
+offset_top = 577.0
+offset_right = 1112.0
+offset_bottom = 608.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Done Painting"
+
+[connection signal="value_changed" from="Control/PaintPalette/Panel/HSlider" to="Control/PainterCanvas" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Control/Button_DoneMask" to="." method="_on_button_done_mask_pressed"]
+[connection signal="pressed" from="Control/Button_DoneHeightMap" to="." method="_on_button_done_height_map_pressed"]
+[connection signal="pressed" from="Control/Button_DonePainting" to="." method="_on_button_done_painting_pressed"]
+
+[editable path="Control/PainterCanvas"]
+[editable path="Control/PaintPalette"]

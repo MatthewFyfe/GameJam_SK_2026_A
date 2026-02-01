@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtm58qwked62y"
-path.s3tc="res://.godot/imported/sanstoneTILE2-2mx2m-FLAT_sandstone3-stripes.png-ca74835805ccc3cbcb196cb255dc1ff6.s3tc.ctex"
+uid="uid://cstsuqyn366bt"
+path="res://.godot/imported/closed-mouth.png-8e470c2525e55cb023d7c15bbd7be47c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/environment/sanstoneTILE2-2mx2m-FLAT_sandstone3-stripes.png"
-dest_files=["res://.godot/imported/sanstoneTILE2-2mx2m-FLAT_sandstone3-stripes.png-ca74835805ccc3cbcb196cb255dc1ff6.s3tc.ctex"]
+source_file="res://Textures/UI/KingTiki/closed-mouth.png"
+dest_files=["res://.godot/imported/closed-mouth.png-8e470c2525e55cb023d7c15bbd7be47c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

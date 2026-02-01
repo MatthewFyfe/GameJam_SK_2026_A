@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxte0ot3ybr4c"]
+
+[ext_resource type="PackedScene" uid="uid://dwg8sh5aro3nw" path="res://Scenes/MakeYourMask/make_your_mask.tscn" id="1_efrf7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_05pkr"]
+sky_top_color = Color(0.41666114, 0.58041424, 0.985725, 1)
+
+[sub_resource type="Sky" id="Sky_ko8r4"]
+sky_material = SubResource("ProceduralSkyMaterial_05pkr")
+
+[sub_resource type="Environment" id="Environment_w11lr"]
+background_mode = 2
+sky = SubResource("Sky_ko8r4")
+
+[node name="MakeYourMask" type="Node3D"]
+
+[node name="MakeYourMask" parent="." instance=ExtResource("1_efrf7")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.88308686, 0.46920955, 0, -0.46920955, 0.88308686, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_w11lr")

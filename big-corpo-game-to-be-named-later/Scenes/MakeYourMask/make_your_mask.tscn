@@ -1,0 +1,243 @@
+[gd_scene load_steps=15 format=3 uid="uid://dwg8sh5aro3nw"]
+
+[ext_resource type="Script" uid="uid://bglw8b81wkuao" path="res://Scenes/MakeYourMask/make_your_mask.gd" id="1_h845d"]
+[ext_resource type="PackedScene" uid="uid://caklxqo0drbqa" path="res://Scenes/MeshGenExample.tscn" id="2_icfd8"]
+[ext_resource type="Texture2D" uid="uid://sfsbq5m3chuj" path="res://Textures/Imrg.png" id="3_wyxhn"]
+[ext_resource type="PackedScene" uid="uid://bx0qar1udm4ld" path="res://Scenes/MakeYourMask/Prefabs/PaintPalette.tscn" id="4_dq5ps"]
+[ext_resource type="PackedScene" uid="uid://yit028ns055k" path="res://Models/customizearea1.glb" id="4_icfd8"]
+[ext_resource type="Texture2D" uid="uid://r2eljl4ycp60" path="res://Screenshots/Screenshot_20260131_133222.png" id="5_dcgq8"]
+[ext_resource type="PackedScene" uid="uid://c1gjn276iqw6q" path="res://Scenes/MakeYourMask/Prefabs/PainterCanvas.tscn" id="6_l41ql"]
+[ext_resource type="Texture2D" uid="uid://b4vmgtot8i7x" path="res://Textures/brish9.png" id="7_7eey7"]
+[ext_resource type="Theme" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="8_pb2qy"]
+[ext_resource type="Texture2D" uid="uid://bgmr5w8m5fn43" path="res://Textures/UI/woodpanelsquare1.png" id="9_xi118"]
+[ext_resource type="Texture2D" uid="uid://dga1fjmly8a6e" path="res://Textures/UI/woodpanelsquare1_warm.png" id="10_wdpgr"]
+[ext_resource type="Texture2D" uid="uid://byc4ifk1ggx6t" path="res://Textures/UI/woodpanelsquare1_hover.png" id="11_srtni"]
+[ext_resource type="Texture2D" uid="uid://dlgeqgqirbcda" path="res://Textures/UI/woodpanelsquare1_disabled.png" id="12_d1jps"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n8kie"]
+resource_local_to_scene = true
+cull_mode = 2
+albedo_texture = ExtResource("3_wyxhn")
+
+[node name="MakeYourMask" type="Node3D" node_paths=PackedStringArray("painter_image", "PBack_image", "Palette_grid_container", "MeshGen_ref", "ButtonDoneMask", "ButtonDoneHeight", "ButtonDonePaint")]
+script = ExtResource("1_h845d")
+painter_image = NodePath("Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control/PainterCanvas")
+PBack_image = NodePath("Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control/PBackCanvas2")
+Palette_grid_container = NodePath("Player1/VBoxContainer/HBoxContainer2/PaintPalette/Panel/GridContainer")
+MeshGen_ref = NodePath("MeshGenExample")
+ButtonDoneMask = NodePath("Player1/VBoxContainer/HBoxContainer/Button_DoneMask")
+ButtonDoneHeight = NodePath("Player1/VBoxContainer/HBoxContainer/Button_DoneHeight")
+ButtonDonePaint = NodePath("Player1/VBoxContainer/HBoxContainer/Button_DonePainting")
+
+[node name="MeshGenExample" parent="." instance=ExtResource("2_icfd8")]
+
+[node name="MeshInstance3D" parent="MeshGenExample/BeanBoiSceene" index="1"]
+material_override = SubResource("StandardMaterial3D_n8kie")
+
+[node name="customizearea" parent="." instance=ExtResource("4_icfd8")]
+transform = Transform3D(-1.8140225e-08, 0, 0.415, 0, 0.415, 0, -0.415, 0, -1.8140225e-08, 4.115, -1.68, -15.655)
+
+[node name="Player1" type="Control" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Player1/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PaintPalette" parent="Player1/VBoxContainer/HBoxContainer2" instance=ExtResource("4_dq5ps")]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="HSlider" parent="Player1/VBoxContainer/HBoxContainer2/PaintPalette/Panel" index="0"]
+offset_top = 27.0
+offset_bottom = 43.0
+
+[node name="CurrentPaintColor" parent="Player1/VBoxContainer/HBoxContainer2/PaintPalette/Panel" index="1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.5
+offset_top = -46.0
+offset_right = 16.50003
+offset_bottom = -10.9999695
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" parent="Player1/VBoxContainer/HBoxContainer2/PaintPalette/Panel" index="2" node_paths=PackedStringArray("painter_image", "current_color_rect")]
+painter_image = NodePath("../../../CanvasSystem/Control/PainterCanvas")
+current_color_rect = NodePath("../CurrentPaintColor")
+
+[node name="CanvasSystem" type="Control" parent="Player1/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="Player1/VBoxContainer/HBoxContainer2/CanvasSystem"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BeanCanvas2" type="TextureRect" parent="Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control"]
+layout_mode = 1
+offset_right = 341.0
+offset_bottom = 414.0
+texture = ExtResource("5_dcgq8")
+
+[node name="PBackCanvas2" type="TextureRect" parent="Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control"]
+layout_mode = 1
+offset_left = 67.0
+offset_top = 2.0
+offset_right = 323.0
+offset_bottom = 412.0
+expand_mode = 2
+
+[node name="PainterCanvas" parent="Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control" node_paths=PackedStringArray("current_color_rect") instance=ExtResource("6_l41ql")]
+layout_mode = 1
+offset_left = 67.0
+offset_top = 2.0
+offset_right = 107.0
+offset_bottom = 42.0
+current_color_rect = NodePath("../../../PaintPalette/Panel/CurrentPaintColor")
+brush_texture = ExtResource("7_7eey7")
+canvas_bg = Color(0, 0, 0, 0.25882354)
+canvas_bg2 = Color(0, 0, 0, 0.25882354)
+canvas_bg3 = Color(0, 0, 0, 0.25882354)
+
+[node name="Button" type="Button" parent="Player1/VBoxContainer/HBoxContainer2/CanvasSystem"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Skin"
+
+[node name="Control" type="Control" parent="Player1/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="Player1/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player1/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button_DoneMask" type="TextureButton" parent="Player1/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_pb2qy")
+texture_normal = ExtResource("9_xi118")
+texture_pressed = ExtResource("10_wdpgr")
+texture_hover = ExtResource("11_srtni")
+texture_disabled = ExtResource("12_d1jps")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Player1/VBoxContainer/HBoxContainer/Button_DoneMask"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.5
+offset_top = -24.0
+offset_right = 126.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_pb2qy")
+text = "Done Mask Shape"
+
+[node name="Button_DoneHeight" type="TextureButton" parent="Player1/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_pb2qy")
+texture_normal = ExtResource("9_xi118")
+texture_pressed = ExtResource("10_wdpgr")
+texture_hover = ExtResource("11_srtni")
+texture_disabled = ExtResource("12_d1jps")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Player1/VBoxContainer/HBoxContainer/Button_DoneHeight"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -11.5
+offset_right = 57.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_pb2qy")
+text = "Done HeightMap"
+
+[node name="Button_DonePainting" type="TextureButton" parent="Player1/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_pb2qy")
+texture_normal = ExtResource("9_xi118")
+texture_pressed = ExtResource("10_wdpgr")
+texture_hover = ExtResource("11_srtni")
+texture_disabled = ExtResource("12_d1jps")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Player1/VBoxContainer/HBoxContainer/Button_DonePainting"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -11.5
+offset_right = 57.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_pb2qy")
+text = "Done Painting"
+
+[connection signal="value_changed" from="Player1/VBoxContainer/HBoxContainer2/PaintPalette/Panel/HSlider" to="Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control/PainterCanvas" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Player1/VBoxContainer/HBoxContainer/Button_DoneMask" to="." method="_on_button_done_mask_pressed"]
+[connection signal="pressed" from="Player1/VBoxContainer/HBoxContainer/Button_DoneHeight" to="." method="_on_button_done_height_map_pressed"]
+[connection signal="pressed" from="Player1/VBoxContainer/HBoxContainer/Button_DonePainting" to="." method="_on_button_done_painting_pressed"]
+
+[editable path="MeshGenExample"]
+[editable path="MeshGenExample/BeanBoiSceene"]
+[editable path="Player1/VBoxContainer/HBoxContainer2/PaintPalette"]
+[editable path="Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control/PainterCanvas"]

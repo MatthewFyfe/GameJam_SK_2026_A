@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://yisdcmau61yt"
-path="res://.godot/imported/sanstoneTILE-4mtallx2m-FLAT.glb-5eb5c7008f869c48876c8a8f47cc6b72.scn"
+uid="uid://ceuh5g848n5k"
+path="res://.godot/imported/sanstoneTILE2-2mx2m-wedge.glb-82ac898cb124ad70f7068222d00b1372.scn"
 
 [deps]
 
-source_file="res://Models/environment/sanstoneTILE-4mtallx2m-FLAT.glb"
-dest_files=["res://.godot/imported/sanstoneTILE-4mtallx2m-FLAT.glb-5eb5c7008f869c48876c8a8f47cc6b72.scn"]
+source_file="res://Models/environment/sanstoneTILE2-2mx2m-wedge.glb"
+dest_files=["res://.godot/imported/sanstoneTILE2-2mx2m-wedge.glb-82ac898cb124ad70f7068222d00b1372.scn"]
 
 [params]
 

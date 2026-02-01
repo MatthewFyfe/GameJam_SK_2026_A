@@ -5,9 +5,11 @@ var baseMask: Image
 var heightMapMask: Image
 var paintedMask: Image
 
+@export var PlayerNo:int = 0
+
 #Note: PainterCanvas extends Sprite2D
 @export var painter_image : PainterCanvas
-@export var PBack_image : Sprite2D
+@export var PBack_image : TextureRect
 @export var Palette_grid_container : PainterPalettez
 @export var MeshGen_ref : Node3D
 
@@ -44,6 +46,7 @@ func _on_button_done_height_map_pressed() -> void:
 	#save this image as the heightmap texture, swap to paint mode
 	heightMapMask = painter_image.img.duplicate()
 	painter_image.erase_canvas(3)
+	#painter_image.img.set_data()
 	Palette_grid_container.set_palette_mode(3)
 	
 	ButtonDoneMask.disabled = true
@@ -55,7 +58,8 @@ func _on_button_done_painting_pressed() -> void:
 	#save this image as the color texture
 	paintedMask = painter_image.img.duplicate()
 	
-	MeshGen_ref.export_bean_mask(baseMask, heightMapMask, paintedMask)
+	GlobalPlayerData.PlayerData[PlayerNo].append(
+		MeshGen_ref.export_bean_mask(baseMask, heightMapMask, paintedMask))
 	#get_tree().change_scene_to_file("res://Scenes/MeshGenExample.tscn")
 
 

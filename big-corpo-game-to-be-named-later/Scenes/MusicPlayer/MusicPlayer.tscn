@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3 uid="uid://fruip0iyihtc"]
+
+[ext_resource type="AudioStream" uid="uid://ycx317po1cfi" path="res://music/Mask Building Final.mp3" id="1_47yqx"]
+[ext_resource type="Script" uid="uid://b6du51m7d80gb" path="res://Scenes/MusicPlayer/music_player.gd" id="1_mw65q"]
+[ext_resource type="AudioStream" uid="uid://c2kbuhg6dwid0" path="res://music/Mean Bean Machine Final.mp3" id="2_mw65q"]
+[ext_resource type="AudioStream" uid="uid://cieb0vry5l3im" path="res://music/Ocean_Ambience.mp3" id="3_he3cw"]
+[ext_resource type="AudioStream" uid="uid://dekjtkp56ove7" path="res://music/voicelines/line_01.mp3" id="4_8cur4"]
+[ext_resource type="AudioStream" uid="uid://d3agbdp1ndkdm" path="res://music/voicelines/line_02.mp3" id="5_8ue63"]
+[ext_resource type="AudioStream" uid="uid://cg3rocv2o8pni" path="res://music/voicelines/line_03.mp3" id="6_6yg5i"]
+[ext_resource type="AudioStream" uid="uid://4mmkfnlmu4pu" path="res://music/voicelines/line_04.mp3" id="7_sadm1"]
+[ext_resource type="AudioStream" uid="uid://b2q0c8bsjedhk" path="res://music/voicelines/line_05.mp3" id="8_061yy"]
+
+[node name="MusicPlayer" type="Node3D"]
+script = ExtResource("1_mw65q")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+
+[node name="MaskBuilding" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_47yqx")
+
+[node name="BeanCombat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mw65q")
+
+[node name="OceanAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_he3cw")
+
+[node name="Dialogue1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8cur4")
+
+[node name="Dialogue2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8ue63")
+
+[node name="Dialogue3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6yg5i")
+
+[node name="Dialogue4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_sadm1")
+
+[node name="Dialogue5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_061yy")

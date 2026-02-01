@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ycx317po1cfi"
+path="res://.godot/imported/Mask Building Final.mp3-874249c50daa7a37ed67707e910dc02d.mp3str"
+
+[deps]
+
+source_file="res://music/Mask Building Final.mp3"
+dest_files=["res://.godot/imported/Mask Building Final.mp3-874249c50daa7a37ed67707e910dc02d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

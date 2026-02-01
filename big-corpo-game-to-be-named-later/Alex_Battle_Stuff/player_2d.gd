@@ -180,6 +180,7 @@ func move(delta: float) -> void:
 
 func deal_damage(taken: float) -> void:
 	current_health -= taken
+	$Label3D.Update(current_health)
 	if (current_health <= 0):
 		self.queue_free()
 
@@ -196,16 +197,7 @@ func rescale_stats() -> void:
 	damage = 20 - (Mirth * 4) + (Misanthropy * 5) - (Green * 3) + (Kitsch * 1) + (Fatherhood * 4) + (Appropriation * 4) - (Marketability * 4) + (Misnomer * 15)
 	accuracy = 1 + (Perspicacity * 0.2) - (Historical_materialism * 0.05) - (Equine * 0.05) - (Kitsch * 0.05) - (Mercator * 0.05)
 	
-	print("Jump Force: " + String.num(jump_force))
-	print("Acceleration: " + String.num(acceleration))
-	print("Max Speed: " + String.num(max_speed))
-	print("Max Jumps: " + String.num(max_jumps))
-	print("Friction: " + String.num(friction))
-	print("Bullet Velocity: " + String.num(bullet_velocity))
-	print("Shot Delay: " + String.num(shot_delay))
-	print("Max Health: " + String.num(max_health))
-	print("Damage: " + String.num(damage))
-	print("Accuracy: " + String.num(accuracy))
+	$Label3D.Update(current_health)
 
 func _on_area_3d_body_entered(body: Node):
 	if (body.is_in_group("terrain")):

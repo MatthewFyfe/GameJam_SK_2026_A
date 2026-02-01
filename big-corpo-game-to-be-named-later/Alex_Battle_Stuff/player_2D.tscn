@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bf8cl4l3m71ww"]
+[gd_scene load_steps=8 format=3 uid="uid://bf8cl4l3m71ww"]
 
 [ext_resource type="Script" uid="uid://shn06ljruxmr" path="res://Alex_Battle_Stuff/player_2d.gd" id="1_7rblk"]
 [ext_resource type="PackedScene" uid="uid://caklxqo0drbqa" path="res://Scenes/MeshGenExample.tscn" id="2_fcphq"]
+[ext_resource type="Script" uid="uid://dknn1522f5lj" path="res://Alex_Battle_Stuff/label_3d.gd" id="3_eu0hp"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ltwcj"]
 
@@ -43,6 +44,12 @@ shape = SubResource("BoxShape3D_7rblk")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 5.9604645e-08)
 shape = SubResource("BoxShape3D_fcphq")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+text = "HP: 200"
+font_size = 240
+script = ExtResource("3_eu0hp")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

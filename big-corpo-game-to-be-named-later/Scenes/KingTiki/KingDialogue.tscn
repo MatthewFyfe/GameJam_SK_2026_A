@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://pe07bathr5jj"]
+
+[ext_resource type="Script" uid="uid://doqbo73bd42mj" path="res://Scenes/KingTiki/king_sprite.gd" id="1_2m5mt"]
+[ext_resource type="Texture2D" uid="uid://gikoj7w64qy8" path="res://Textures/UI/KingTiki/open-mouth.png" id="1_wiy16"]
+[ext_resource type="Texture2D" uid="uid://cstsuqyn366bt" path="res://Textures/UI/KingTiki/closed-mouth.png" id="2_2m5mt"]
+[ext_resource type="Texture2D" uid="uid://dndljdynmvhjs" path="res://Textures/UI/ui-panel-long.png" id="4_00yro"]
+[ext_resource type="Theme" uid="uid://cgvg25kwoey0m" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="5_rlwjo"]
+
+[node name="KingDialogue" type="Node2D"]
+
+[node name="KingSprite" type="Control" parent="." node_paths=PackedStringArray("KingOpen", "KingClosed")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 354.0
+offset_top = 121.0
+offset_right = 394.0
+offset_bottom = 161.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_2m5mt")
+KingOpen = NodePath("KingOpen")
+KingClosed = NodePath("KingClosed")
+
+[node name="KingOpen" type="Sprite2D" parent="KingSprite"]
+texture = ExtResource("1_wiy16")
+
+[node name="KingClosed" type="Sprite2D" parent="KingSprite"]
+texture = ExtResource("2_2m5mt")
+
+[node name="KingSpeech" type="Sprite2D" parent="."]
+position = Vector2(163.00002, 124)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_00yro")
+
+[node name="Label" type="Label" parent="KingSpeech"]
+offset_left = -403.33337
+offset_top = -83.33331
+offset_right = 369.99994
+offset_bottom = 86.66666
+theme = ExtResource("5_rlwjo")
+text = "Since Godot 4.0, the random seed is automatically set to a random value when the project starts. This means you don't need to call randomize() in _ready() anymore to ensure that results are random across project runs. However, you can still use randomize() if you want to use a specific seed number, or generate it using a different method."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 1

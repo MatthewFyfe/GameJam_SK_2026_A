@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bx0qar1udm4ld"]
+[gd_scene load_steps=4 format=3 uid="uid://bx0qar1udm4ld"]
 
+[ext_resource type="FontFile" uid="uid://baqaeg2fbukkm" path="res://Fonts/yomanica/Yomanica-Regular.otf" id="1_4jni2"]
 [ext_resource type="Script" uid="uid://2xgialpvto2q" path="res://Scenes/MakeYourMask/Prefabs/painter_palette.gd" id="1_58ynw"]
 [ext_resource type="Texture2D" uid="uid://dpi2shmmxa828" path="res://Screenshots/eraser.jpg" id="2_hwwb4"]
 
@@ -33,10 +34,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -39.5
-offset_top = -23.0
-offset_right = 40.5
+offset_left = -40.5
+offset_top = -20.445
+offset_right = 41.5
+offset_bottom = 2.5550003
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_4jni2")
 text = "Brush Size"
 
 [node name="CurrentPaintColor" type="ColorRect" parent="Panel"]
@@ -49,10 +52,11 @@ offset_bottom = 115.00002
 
 [node name="Label" type="Label" parent="Panel/CurrentPaintColor"]
 layout_mode = 0
-offset_left = -31.0
+offset_left = -35.88
 offset_top = -26.0
-offset_right = 70.0
+offset_right = 78.119995
 offset_bottom = -3.0
+theme_override_fonts/font = ExtResource("1_4jni2")
 text = "CurrentColor"
 
 [node name="GridContainer" type="GridContainer" parent="Panel" node_paths=PackedStringArray("eraser_ref")]

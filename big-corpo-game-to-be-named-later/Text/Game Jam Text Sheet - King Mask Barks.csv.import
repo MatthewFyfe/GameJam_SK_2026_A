@@ -1,0 +1,14 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cu8u50ri4y3eu"
+
+[deps]
+
+source_file="res://Text/Game Jam Text Sheet - King Mask Barks.csv"
+
+[params]
+
+compress=true
+delimiter=0

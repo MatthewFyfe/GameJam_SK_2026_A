@@ -31,6 +31,7 @@ func _ready() -> void:
 			player.add_child(Cont)
 			player.global_position = self.global_position
 			player.player_ID = i
+			player.start()
 			
 			player.controller_retical = Cont
 			player.rescale_stats()

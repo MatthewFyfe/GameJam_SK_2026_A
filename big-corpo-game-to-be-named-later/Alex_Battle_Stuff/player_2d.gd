@@ -43,7 +43,7 @@ var shot_timer: float = 0
 var current_health: float = max_health
 var lives: float = 3
 
-func _ready() -> void:
+func start() -> void:
 	GlobalPlayerData.PlayersAlive += 1
 	if (GlobalPlayerData.PlayerData[player_ID] != null):
 		$MeshGenExample.setMesh(GlobalPlayerData.PlayerData[player_ID])
@@ -67,6 +67,7 @@ func apply_ratings(ratings:Array):
 
 func _physics_process(delta) -> void:
 	move(delta)
+	
 	
 	shot_timer += delta
 	

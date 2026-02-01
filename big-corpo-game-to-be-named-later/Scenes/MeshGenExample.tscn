@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://caklxqo0drbqa"]
+[gd_scene load_steps=5 format=3 uid="uid://caklxqo0drbqa"]
 
 [ext_resource type="Script" uid="uid://rayqj7xwooks" path="res://Scripts/MeshGen/mesh_gen.gd" id="1_ggml6"]
 [ext_resource type="PackedScene" uid="uid://y1gn77ea40ae" path="res://Scenes/bean_boi_sceene.tscn" id="2_fn4vq"]
 [ext_resource type="Script" uid="uid://bfr6vxjyo7qsn" path="res://Scripts/MeshGen/mask_rating.gd" id="3_fn4vq"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fn4vq"]
+cull_mode = 2
+
 [node name="MeshGenExample" type="Node3D" node_paths=PackedStringArray("mesh", "mask_rating", "bean_container")]
 script = ExtResource("1_ggml6")
 mesh = NodePath("BeanBoiSceene/MeshInstance3D")
+mat = SubResource("StandardMaterial3D_fn4vq")
 mask_rating = NodePath("Node")
 bean_container = NodePath("BeanBoiSceene")
 

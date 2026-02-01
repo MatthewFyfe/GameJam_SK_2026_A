@@ -1,0 +1,104 @@
+[gd_scene load_steps=7 format=3 uid="uid://r8m654j0k8bt"]
+
+[ext_resource type="PackedScene" uid="uid://dwg8sh5aro3nw" path="res://Scenes/MakeYourMask/make_your_mask.tscn" id="1_ttbkc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8nbk0"]
+resource_local_to_scene = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_qklyv"]
+resource_local_to_scene = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_05pkr"]
+sky_top_color = Color(0.41666114, 0.58041424, 0.985725, 1)
+
+[sub_resource type="Sky" id="Sky_ko8r4"]
+sky_material = SubResource("ProceduralSkyMaterial_05pkr")
+
+[sub_resource type="Environment" id="Environment_w11lr"]
+background_mode = 2
+sky = SubResource("Sky_ko8r4")
+
+[node name="MakeYourMask" type="Node3D"]
+
+[node name="MakeYourMask" parent="." instance=ExtResource("1_ttbkc")]
+
+[node name="MeshGenExample" parent="MakeYourMask" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.8556447, 0)
+
+[node name="MeshInstance3D" parent="MakeYourMask/MeshGenExample/BeanBoiSceene" index="1"]
+mesh = SubResource("BoxMesh_8nbk0")
+
+[node name="Player1" parent="MakeYourMask" index="2"]
+offset_right = -576.0
+offset_bottom = -324.012
+
+[node name="MakeYourMask2" parent="." instance=ExtResource("1_ttbkc")]
+PlayerNo = 1
+
+[node name="MeshGenExample" parent="MakeYourMask2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8556447, 0)
+
+[node name="MeshInstance3D" parent="MakeYourMask2/MeshGenExample/BeanBoiSceene" index="1"]
+mesh = SubResource("BoxMesh_qklyv")
+
+[node name="Player1" parent="MakeYourMask2" index="2"]
+offset_left = 576.0
+offset_bottom = -324.0
+
+[node name="MakeYourMask3" parent="." instance=ExtResource("1_ttbkc")]
+PlayerNo = 2
+
+[node name="MeshGenExample" parent="MakeYourMask3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.9478419, 0)
+
+[node name="MeshInstance3D" parent="MakeYourMask3/MeshGenExample/BeanBoiSceene" index="1"]
+mesh = SubResource("BoxMesh_8nbk0")
+
+[node name="Player1" parent="MakeYourMask3" index="2"]
+offset_top = 324.0
+offset_right = -576.0
+offset_bottom = -0.011962891
+
+[node name="MakeYourMask4" parent="." instance=ExtResource("1_ttbkc")]
+PlayerNo = 3
+
+[node name="MeshGenExample" parent="MakeYourMask4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9478419, 0)
+
+[node name="MeshInstance3D" parent="MakeYourMask4/MeshGenExample/BeanBoiSceene" index="1"]
+mesh = SubResource("BoxMesh_qklyv")
+
+[node name="Player1" parent="MakeYourMask4" index="2"]
+offset_left = 576.0
+offset_top = 324.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.88308686, 0.46920955, 0, -0.46920955, 0.88308686, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_w11lr")
+
+[editable path="MakeYourMask"]
+[editable path="MakeYourMask/MeshGenExample"]
+[editable path="MakeYourMask/MeshGenExample/BeanBoiSceene"]
+[editable path="MakeYourMask/Player1/VBoxContainer/HBoxContainer2/PaintPalette"]
+[editable path="MakeYourMask/Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control/PainterCanvas"]
+[editable path="MakeYourMask2"]
+[editable path="MakeYourMask2/MeshGenExample"]
+[editable path="MakeYourMask2/MeshGenExample/BeanBoiSceene"]
+[editable path="MakeYourMask2/Player1/VBoxContainer/HBoxContainer2/PaintPalette"]
+[editable path="MakeYourMask2/Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control/PainterCanvas"]
+[editable path="MakeYourMask3"]
+[editable path="MakeYourMask3/MeshGenExample"]
+[editable path="MakeYourMask3/MeshGenExample/BeanBoiSceene"]
+[editable path="MakeYourMask3/Player1/VBoxContainer/HBoxContainer2/PaintPalette"]
+[editable path="MakeYourMask3/Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control/PainterCanvas"]
+[editable path="MakeYourMask4"]
+[editable path="MakeYourMask4/MeshGenExample"]
+[editable path="MakeYourMask4/MeshGenExample/BeanBoiSceene"]
+[editable path="MakeYourMask4/Player1/VBoxContainer/HBoxContainer2/PaintPalette"]
+[editable path="MakeYourMask4/Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control/PainterCanvas"]

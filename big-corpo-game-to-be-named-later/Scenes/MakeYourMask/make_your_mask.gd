@@ -6,6 +6,7 @@ var heightMapMask: Image
 var paintedMask: Image
 
 @export var PlayerNo:int = 0
+var submitted = false
 
 #Note: PainterCanvas extends Sprite2D
 @export var painter_image : PainterCanvas
@@ -22,6 +23,8 @@ func _ready() -> void:
 	ButtonDoneMask.disabled = false
 	ButtonDoneHeight.disabled = true
 	ButtonDonePaint.disabled = true
+	
+	GlobalPlayerData.MaxPlayers = maxi(PlayerNo+1, GlobalPlayerData.MaxPlayers)
 	pass # Replace with function body.
 
 
@@ -55,11 +58,20 @@ func _on_button_done_height_map_pressed() -> void:
 
 
 func _on_button_done_painting_pressed() -> void:
+	if(submitted):
+		return
+	submitted = true
 	#save this image as the color texture
 	paintedMask = painter_image.img.duplicate()
 	
 	GlobalPlayerData.PlayerData[PlayerNo].append(
 		MeshGen_ref.export_bean_mask(baseMask, heightMapMask, paintedMask))
+		
+	GlobalPlayerData.playersSubmitted += 1
+	
+	if(GlobalPlayerData.playersSubmitted >= GlobalPlayerData.MaxPlayers):
+		print("SUBMITTED")
+		get_tree().change_scene_to_file("res://Alex_Battle_Stuff/battle.tscn")
 	#get_tree().change_scene_to_file("res://Scenes/MeshGenExample.tscn")
 
 

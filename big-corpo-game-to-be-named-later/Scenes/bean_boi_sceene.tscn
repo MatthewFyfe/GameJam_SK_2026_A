@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://y1gn77ea40ae"]
+[gd_scene load_steps=4 format=3 uid="uid://y1gn77ea40ae"]
 
 [ext_resource type="PackedScene" uid="uid://cxb624y5iqde2" path="res://Models/beanboi1.gltf" id="1_fjkwh"]
 [ext_resource type="PackedScene" uid="uid://p6v50kt5gbp0" path="res://Models/beanboi-LEAF.glb" id="2_0nfuj"]
-[ext_resource type="Material" uid="uid://b5661yyu1bk64" path="res://Textures/Mask_mat.tres" id="3_lalpp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6no6t"]
 
@@ -19,6 +18,5 @@ transform = Transform3D(-0.4685148, 0, -0.42615134, 0, 0.6333333, 0, 0.42615134,
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.01, 0, -8.7422775e-10, 0, -0.01, 0, 8.7422775e-10, 0, 0.01, 0, 0, 0.5171037)
-material_override = ExtResource("3_lalpp")
 mesh = SubResource("BoxMesh_6no6t")
 skeleton = NodePath("../..")

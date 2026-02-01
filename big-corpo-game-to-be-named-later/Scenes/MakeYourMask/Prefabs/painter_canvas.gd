@@ -11,7 +11,7 @@ class_name PainterCanvas
 		paint_color = value
 		current_color_rect.color = value
 		update_brush()
-@export var brush_size := 3 :
+@export var brush_size := 10 :
 	set(value):
 		brush_size = value
 		update_brush()

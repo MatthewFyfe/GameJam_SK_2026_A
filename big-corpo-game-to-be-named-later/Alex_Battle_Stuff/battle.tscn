@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://di7pvtkyro6u"]
+[gd_scene load_steps=9 format=3 uid="uid://di7pvtkyro6u"]
 
 [ext_resource type="Script" uid="uid://rh1jmqlkko1r" path="res://Alex_Battle_Stuff/game_manager.gd" id="1_4rxto"]
 [ext_resource type="PackedScene" uid="uid://bf8cl4l3m71ww" path="res://Alex_Battle_Stuff/player_2D.tscn" id="1_25nfd"]
 [ext_resource type="PackedScene" uid="uid://drcbwmjb4v3ns" path="res://Alex_Battle_Stuff/retical.tscn" id="2_cph7k"]
+[ext_resource type="PackedScene" uid="uid://beitgmhiahyed" path="res://Alex_Battle_Stuff/conrtoller_retical.tscn" id="4_6ukcn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5fowf"]
 size = Vector3(20, 2.8, 3.1000001)
@@ -22,6 +23,8 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 4.9999995, 0)
 script = ExtResource("1_4rxto")
 player_scn = ExtResource("1_25nfd")
+retical_scn = ExtResource("2_cph7k")
+cont_retical_scn = ExtResource("4_6ukcn")
 
 [node name="stage" type="RigidBody3D" parent="." groups=["terrain"]]
 gravity_scale = 0.0
@@ -104,5 +107,3 @@ freeze = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, -66, 1)
 shape = SubResource("BoxShape3D_cph7k")
-
-[node name="retical" parent="." instance=ExtResource("2_cph7k")]

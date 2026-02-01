@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1x0mql87mcix"]
+[gd_scene load_steps=13 format=3 uid="uid://r8m654j0k8bt"]
 
 [ext_resource type="PackedScene" uid="uid://dwg8sh5aro3nw" path="res://Scenes/MakeYourMask/make_your_mask.tscn" id="1_ttbkc"]
 [ext_resource type="Texture2D" uid="uid://sfsbq5m3chuj" path="res://Textures/Imrg.png" id="2_kga8e"]
@@ -53,8 +53,8 @@ material_override = SubResource("StandardMaterial3D_d0ass")
 mesh = SubResource("BoxMesh_8nbk0")
 
 [node name="Player1" parent="MakeYourMask" index="2"]
-offset_right = -576.0
-offset_bottom = -324.012
+offset_right = -960.0
+offset_bottom = -540.0
 
 [node name="MusicPlayer" parent="MakeYourMask" instance=ExtResource("3_qcexu")]
 
@@ -69,8 +69,8 @@ material_override = SubResource("StandardMaterial3D_3ye0h")
 mesh = SubResource("BoxMesh_qklyv")
 
 [node name="Player1" parent="MakeYourMask2" index="2"]
-offset_left = 576.0
-offset_bottom = -324.0
+offset_left = 960.0
+offset_bottom = -540.0
 
 [node name="MakeYourMask3" parent="." instance=ExtResource("1_ttbkc")]
 PlayerNo = 2
@@ -83,9 +83,8 @@ material_override = SubResource("StandardMaterial3D_elncy")
 mesh = SubResource("BoxMesh_8nbk0")
 
 [node name="Player1" parent="MakeYourMask3" index="2"]
-offset_top = 324.0
-offset_right = -576.0
-offset_bottom = -0.011962891
+offset_top = 540.0
+offset_right = -960.0
 
 [node name="MakeYourMask4" parent="." instance=ExtResource("1_ttbkc")]
 PlayerNo = 3
@@ -98,8 +97,8 @@ material_override = SubResource("StandardMaterial3D_343le")
 mesh = SubResource("BoxMesh_qklyv")
 
 [node name="Player1" parent="MakeYourMask4" index="2"]
-offset_left = 576.0
-offset_top = 324.0
+offset_left = 960.0
+offset_top = 540.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)

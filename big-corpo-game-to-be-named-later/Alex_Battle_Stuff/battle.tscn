@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://di7pvtkyro6u"]
+[gd_scene load_steps=13 format=3 uid="uid://di7pvtkyro6u"]
 
 [ext_resource type="Script" uid="uid://rh1jmqlkko1r" path="res://Alex_Battle_Stuff/game_manager.gd" id="1_4rxto"]
 [ext_resource type="PackedScene" uid="uid://bf8cl4l3m71ww" path="res://Alex_Battle_Stuff/player_2D.tscn" id="1_25nfd"]
+[ext_resource type="PackedScene" uid="uid://512v0x2fy6wj" path="res://spawn_point.tscn" id="1_mugby"]
 [ext_resource type="PackedScene" uid="uid://drcbwmjb4v3ns" path="res://Alex_Battle_Stuff/retical.tscn" id="2_cph7k"]
 [ext_resource type="PackedScene" uid="uid://beitgmhiahyed" path="res://Alex_Battle_Stuff/conrtoller_retical.tscn" id="4_6ukcn"]
 [ext_resource type="Texture2D" uid="uid://bpd8h4hydi2um" path="res://Textures/UI/BattleBackground/battle-scene-background-blurred.png" id="5_qc18h"]
 [ext_resource type="Theme" uid="uid://cgvg25kwoey0m" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="6_dguhl"]
-[ext_resource type="AudioStream" uid="uid://c2kbuhg6dwid0" path="res://music/Mean Bean Machine Final.mp3" id="7_k507e"]
+[ext_resource type="AudioStream" uid="uid://dtol7ublvju1j" path="res://music/Mean Bean Machine Final.mp3" id="7_k507e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5fowf"]
 size = Vector3(20, 2.8, 3.1000001)
@@ -22,12 +23,13 @@ size = Vector3(16, 37, 13)
 [node name="Battle" type="Node3D"]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="GameManager" type="Node3D" parent="."]
+[node name="GameManager" type="Node3D" parent="." node_paths=PackedStringArray("Spawn_Points")]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 4.9999995, 0)
 script = ExtResource("1_4rxto")
 player_scn = ExtResource("1_25nfd")
 retical_scn = ExtResource("2_cph7k")
 cont_retical_scn = ExtResource("4_6ukcn")
+Spawn_Points = [NodePath("../spawn point"), NodePath("../spawn point2"), NodePath("../spawn point3"), NodePath("../spawn point4")]
 
 [node name="Control" type="Control" parent="GameManager"]
 visible = false
@@ -171,3 +173,15 @@ shape = SubResource("BoxShape3D_cph7k")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("7_k507e")
+
+[node name="spawn point" parent="." instance=ExtResource("1_mugby")]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -7.9999995, 3.9999998, 0)
+
+[node name="spawn point2" parent="." instance=ExtResource("1_mugby")]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -2.9999995, 3.9999998, 0)
+
+[node name="spawn point3" parent="." instance=ExtResource("1_mugby")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 2.9999995, 3.9999995, 0)
+
+[node name="spawn point4" parent="." instance=ExtResource("1_mugby")]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 1, 7.9999986, 3.9999993, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://citcwsu2qgkci"]
+[gd_scene load_steps=11 format=3 uid="uid://1fjuvi25nclj"]
 
 [ext_resource type="PackedScene" uid="uid://dwg8sh5aro3nw" path="res://Scenes/MakeYourMask/make_your_mask.tscn" id="1_8nbk0"]
 [ext_resource type="Texture2D" uid="uid://sfsbq5m3chuj" path="res://Textures/Imrg.png" id="2_qklyv"]
@@ -30,7 +30,7 @@ sky_material = SubResource("ProceduralSkyMaterial_05pkr")
 background_mode = 2
 sky = SubResource("Sky_ko8r4")
 
-[node name="MakeYourMask" type="Node3D"]
+[node name="MakeYourMask2" type="Node3D"]
 
 [node name="MakeYourMask" parent="." instance=ExtResource("1_8nbk0")]
 playsAudio = true
@@ -43,8 +43,7 @@ material_override = SubResource("StandardMaterial3D_iwxxg")
 mesh = SubResource("BoxMesh_8nbk0")
 
 [node name="Player1" parent="MakeYourMask" index="2"]
-offset_right = -576.0
-offset_bottom = -0.025024414
+offset_right = -960.0
 
 [node name="MusicPlayer" parent="MakeYourMask" instance=ExtResource("3_0mfb5")]
 
@@ -56,7 +55,7 @@ material_override = SubResource("StandardMaterial3D_wo862")
 mesh = SubResource("BoxMesh_qklyv")
 
 [node name="Player1" parent="MakeYourMask2" index="2"]
-offset_left = 576.0
+offset_left = 960.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)

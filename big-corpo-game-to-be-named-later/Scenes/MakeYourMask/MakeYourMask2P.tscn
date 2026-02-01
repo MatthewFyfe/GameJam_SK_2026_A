@@ -1,22 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://1fjuvi25nclj"]
+[gd_scene load_steps=9 format=3 uid="uid://1fjuvi25nclj"]
 
 [ext_resource type="PackedScene" uid="uid://dwg8sh5aro3nw" path="res://Scenes/MakeYourMask/make_your_mask.tscn" id="1_8nbk0"]
-[ext_resource type="Texture2D" uid="uid://sfsbq5m3chuj" path="res://Textures/Imrg.png" id="2_qklyv"]
 [ext_resource type="PackedScene" uid="uid://fruip0iyihtc" path="res://Scenes/MusicPlayer/MusicPlayer.tscn" id="3_0mfb5"]
 [ext_resource type="PackedScene" uid="uid://pe07bathr5jj" path="res://Scenes/KingTiki/KingDialogue.tscn" id="3_iwxxg"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwxxg"]
-resource_local_to_scene = true
-cull_mode = 2
-albedo_texture = ExtResource("2_qklyv")
-
 [sub_resource type="BoxMesh" id="BoxMesh_8nbk0"]
 resource_local_to_scene = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wo862"]
-resource_local_to_scene = true
-cull_mode = 2
-albedo_texture = ExtResource("2_qklyv")
 
 [sub_resource type="BoxMesh" id="BoxMesh_qklyv"]
 resource_local_to_scene = true
@@ -40,7 +29,6 @@ playsAudio = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
 
 [node name="MeshInstance3D" parent="MakeYourMask/MeshGenExample/BeanBoiSceene" index="1"]
-material_override = SubResource("StandardMaterial3D_iwxxg")
 mesh = SubResource("BoxMesh_8nbk0")
 
 [node name="Player1" parent="MakeYourMask" index="2"]
@@ -55,7 +43,6 @@ position = Vector2(0, 257)
 PlayerNo = 1
 
 [node name="MeshInstance3D" parent="MakeYourMask2/MeshGenExample/BeanBoiSceene" index="1"]
-material_override = SubResource("StandardMaterial3D_wo862")
 mesh = SubResource("BoxMesh_qklyv")
 
 [node name="Player1" parent="MakeYourMask2" index="2"]

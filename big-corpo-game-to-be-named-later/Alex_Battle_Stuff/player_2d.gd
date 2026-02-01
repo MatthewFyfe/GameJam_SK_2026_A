@@ -38,8 +38,10 @@ var bullet: PackedScene = preload("res://Alex_Battle_Stuff/bullet.tscn")
 @export var retical: Retical = null
 @export var player_ID: int = 0
 @export var controller_retical: Node3D = null
+@export var respawn_point: Node3D = null
 var shot_timer: float = 0
 var current_health: float = max_health
+var lives: float = 3
 
 func _ready() -> void:
 	GlobalPlayerData.PlayersAlive += 1
@@ -180,11 +182,17 @@ func move(delta: float) -> void:
 
 func deal_damage(taken: float) -> void:
 	current_health -= taken
-	$Label3D.Update(current_health)
 	if (current_health <= 0):
-		GlobalPlayerData.PlayersAlive -= 1
-		GlobalPlayerData.LastPlayerToDie = player_ID
-		self.queue_free()
+		lives -= 1
+		if (lives <= 0):
+			GlobalPlayerData.PlayersAlive -= 1
+			GlobalPlayerData.LastPlayerToDie = player_ID
+			self.queue_free()
+		else:
+			current_health = max_health
+			self.position = respawn_point.position
+			self.linear_velocity = Vector3.ZERO
+	$Label3D.Update(current_health)
 
 func rescale_stats() -> void:
 	jump_force = 40 + (Mirth * 10)
@@ -217,16 +225,16 @@ func _on_area_3d_2_body_entered(body: Node):
 		jumps = max_jumps - 1
 		linear_velocity.y = -terminal_velocity / 2
 		launching = true
-		deal_damage(25)
+		deal_damage(40)
 	elif (body.is_in_group("border_top")):
 		linear_velocity.y = terminal_velocity / 3
 		launching = true
-		deal_damage(25)
+		deal_damage(40)
 	elif (body.is_in_group("border_right")):
 		linear_velocity.x = terminal_velocity
 		launching = true
-		deal_damage(25)
+		deal_damage(40)
 	elif (body.is_in_group("border_left")):
 		linear_velocity.x = -terminal_velocity
 		launching = true
-		deal_damage(25)
+		deal_damage(40)

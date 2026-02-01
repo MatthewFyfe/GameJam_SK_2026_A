@@ -100,6 +100,7 @@ func _physics_process(delta) -> void:
 		if (Input.is_joy_button_pressed(player_ID, JoyButton.JOY_BUTTON_RIGHT_SHOULDER) and shot_timer > shot_delay):
 			shot_timer = 0
 			var item:RigidBody3D = bullet.instantiate()
+			$sounds/shoot.play()
 			self.get_parent().add_child(item)
 			item.global_position = self.global_position
 			item.damage = damage
@@ -122,6 +123,7 @@ func _physics_process(delta) -> void:
 		shot_timer = 0
 		var item:RigidBody3D = bullet.instantiate()
 		self.get_parent().add_child(item)
+		$sounds/shoot.play()
 		item.global_position = self.global_position
 		item.damage = damage
 		
@@ -184,6 +186,7 @@ func deal_damage(taken: float) -> void:
 	current_health -= taken
 	if (current_health <= 0):
 		lives -= 1
+		$sounds/death.play()
 		if (lives <= 0):
 			GlobalPlayerData.PlayersAlive -= 1
 			GlobalPlayerData.LastPlayerToDie = player_ID
@@ -200,7 +203,7 @@ func rescale_stats() -> void:
 	max_speed = 50 + (Equine * 5) - (Appropriation * 6) - (Girth * 5)
 	max_jumps = 2 + roundi(Chutzpah)
 	friction = 90 + (Equine * 12)
-	bullet_velocity =  20 - (Kitsch * 20) - (Intelligence * 10) + (Misnomer * 80)
+	bullet_velocity =  20 - (Kitsch * 20) - (Intelligence * 5) + (Misnomer * 80)
 	shot_delay = 0.8 - (Kitsch * 0.1) - (Mercator * 0.5)
 	max_health = 200 + (Historical_materialism * 20) - (Misanthropy * 25) + (Green * 40) + (Girth * 30)
 	current_health = max_health
@@ -208,6 +211,9 @@ func rescale_stats() -> void:
 	accuracy = 1 + (Perspicacity * 0.2) - (Historical_materialism * 0.05) - (Equine * 0.05) - (Kitsch * 0.05) - (Mercator * 0.05)
 	
 	$Label3D.Update(current_health)
+
+func play_hurt() -> void:
+	$sounds/hit.play()
 
 func _on_area_3d_body_entered(body: Node):
 	if (body.is_in_group("terrain")):
@@ -222,19 +228,23 @@ func _on_area_3d_body_exited(body: Node):
 
 func _on_area_3d_2_body_entered(body: Node):
 	if (body.is_in_group("border_bottom")):
+		$sounds/border.play()
 		jumps = max_jumps - 1
 		linear_velocity.y = -terminal_velocity / 2
 		launching = true
 		deal_damage(40)
 	elif (body.is_in_group("border_top")):
+		$sounds/border.play()
 		linear_velocity.y = terminal_velocity / 3
 		launching = true
 		deal_damage(40)
 	elif (body.is_in_group("border_right")):
+		$sounds/border.play()
 		linear_velocity.x = terminal_velocity
 		launching = true
 		deal_damage(40)
 	elif (body.is_in_group("border_left")):
+		$sounds/border.play()
 		linear_velocity.x = -terminal_velocity
 		launching = true
 		deal_damage(40)

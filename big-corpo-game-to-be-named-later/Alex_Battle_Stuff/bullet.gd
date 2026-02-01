@@ -12,6 +12,7 @@ func _physics_process(delta):
 func _on_area_3d_body_entered(body: Node):
 	if (body is Player):
 		if (body.player_ID != player_ID or timer > 0.4):
+			body.play_hurt()
 			body.deal_damage(damage)
 			self.queue_free()
 	else:

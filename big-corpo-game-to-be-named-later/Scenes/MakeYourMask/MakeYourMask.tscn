@@ -15,8 +15,8 @@
 
 [node name="MakeYourMask" type="Node3D" node_paths=PackedStringArray("painter_image", "PBack_image", "Palette_grid_container", "MeshGen_ref", "ButtonDoneMask", "ButtonDoneHeight", "ButtonDonePaint")]
 script = ExtResource("1_217l0")
-painter_image = NodePath("Control/PainterCanvas")
-PBack_image = NodePath("Control/PBackCanvas")
+painter_image = NodePath("Control/CanvasSystem/PainterCanvas")
+PBack_image = NodePath("Control/CanvasSystem/PBackCanvas")
 Palette_grid_container = NodePath("Control/PaintPalette/Panel/GridContainer")
 MeshGen_ref = NodePath("Control/MeshGenExample")
 ButtonDoneMask = NodePath("Control/Button_DoneMask")
@@ -24,45 +24,63 @@ ButtonDoneHeight = NodePath("Control/Button_DoneHeight")
 ButtonDonePaint = NodePath("Control/Button_DonePainting")
 
 [node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MeshGenExample" parent="Control" instance=ExtResource("5_0tiwb")]
+
+[node name="Camera3D" parent="Control/MeshGenExample" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23, 0, 3.031)
+
+[node name="Node3D" parent="Control/MeshGenExample" index="2"]
+transform = Transform3D(0.8746197, 0, -0.4848096, 0, 1, 0, 0.4848096, 0, 0.8746197, 0, 0, 0)
+
+[node name="PaintPalette" parent="Control" instance=ExtResource("2_s3r2p")]
+layout_mode = 1
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="GridContainer" parent="Control/PaintPalette/Panel" index="2" node_paths=PackedStringArray("painter_image", "current_color_rect")]
+painter_image = NodePath("../../../CanvasSystem/PainterCanvas")
+current_color_rect = NodePath("../CurrentPaintColor")
 
-[node name="BeanCanvas" type="Sprite2D" parent="Control"]
+[node name="CanvasSystem" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 150.0
+offset_right = 150.0
+
+[node name="BeanCanvas" type="Sprite2D" parent="Control/CanvasSystem"]
 position = Vector2(300, 256)
 texture = ExtResource("2_rr3f8")
 
-[node name="PBackCanvas" type="Sprite2D" parent="Control"]
+[node name="PBackCanvas" type="Sprite2D" parent="Control/CanvasSystem"]
 position = Vector2(300, 256)
 
-[node name="PainterCanvas" parent="Control" node_paths=PackedStringArray("current_color_rect") instance=ExtResource("1_iydgg")]
+[node name="PainterCanvas" parent="Control/CanvasSystem" node_paths=PackedStringArray("current_color_rect") instance=ExtResource("1_iydgg")]
 position = Vector2(300, 256)
-current_color_rect = NodePath("../PaintPalette/Panel/CurrentPaintColor")
+current_color_rect = NodePath("../../PaintPalette/Panel/CurrentPaintColor")
 brush_texture = ExtResource("4_ryyya")
 canvas_bg = Color(0, 0, 0, 0.25882354)
 canvas_bg2 = Color(0, 0, 0, 0.25882354)
 canvas_bg3 = Color(0, 0, 0, 0.25882354)
 
-[node name="PaintPalette" parent="Control" instance=ExtResource("2_s3r2p")]
-layout_mode = 1
-
-[node name="GridContainer" parent="Control/PaintPalette/Panel" index="2" node_paths=PackedStringArray("painter_image", "current_color_rect")]
-painter_image = NodePath("../../../PainterCanvas")
-current_color_rect = NodePath("../CurrentPaintColor")
-
 [node name="Button_DoneMask" type="TextureButton" parent="Control"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 389.0
-offset_right = 516.0
-offset_bottom = 901.0
-scale = Vector2(0.5, 0.5)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -512.0
+offset_right = 512.0
+grow_vertical = 0
 theme = ExtResource("7_8ewdo")
 texture_normal = ExtResource("6_ducfl")
 texture_pressed = ExtResource("8_tahyh")
@@ -88,12 +106,14 @@ theme = ExtResource("7_8ewdo")
 text = "Done Mask Shape"
 
 [node name="Button_DoneHeight" type="TextureButton" parent="Control"]
-layout_mode = 0
-offset_left = 176.0
-offset_top = 424.0
-offset_right = 688.0
-offset_bottom = 936.0
-scale = Vector2(0.5, 0.5)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = -512.0
+offset_right = 812.0
+grow_vertical = 0
 theme = ExtResource("7_8ewdo")
 texture_normal = ExtResource("6_ducfl")
 texture_pressed = ExtResource("8_tahyh")
@@ -119,12 +139,14 @@ theme = ExtResource("7_8ewdo")
 text = "Done HeightMap"
 
 [node name="Button_DonePainting" type="TextureButton" parent="Control"]
-layout_mode = 0
-offset_left = 361.0
-offset_top = 393.0
-offset_right = 873.0
-offset_bottom = 905.0
-scale = Vector2(0.5, 0.5)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 600.0
+offset_top = -512.0
+offset_right = 1112.0
+grow_vertical = 0
 theme = ExtResource("7_8ewdo")
 texture_normal = ExtResource("6_ducfl")
 texture_pressed = ExtResource("8_tahyh")
@@ -149,22 +171,14 @@ grow_vertical = 2
 theme = ExtResource("7_8ewdo")
 text = "Done Painting"
 
-[node name="MeshGenExample" parent="Control" instance=ExtResource("5_0tiwb")]
-
-[node name="Camera3D" parent="Control/MeshGenExample" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23, 0, 3.031)
-
-[node name="Node3D" parent="Control/MeshGenExample" index="2"]
-transform = Transform3D(0.8746197, 0, -0.4848096, 0, 1, 0, 0.4848096, 0, 0.8746197, 0, 0, 0)
-
 [node name="customizearea" parent="." instance=ExtResource("12_8uyf6")]
 transform = Transform3D(-1.8140225e-08, 0, 0.415, 0, 0.415, 0, -0.415, 0, -1.8140225e-08, 4.115, -1.68, -15.655)
 
-[connection signal="value_changed" from="Control/PaintPalette/Panel/HSlider" to="Control/PainterCanvas" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Control/PaintPalette/Panel/HSlider" to="Control/CanvasSystem/PainterCanvas" method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Control/Button_DoneMask" to="." method="_on_button_done_mask_pressed"]
 [connection signal="pressed" from="Control/Button_DoneHeight" to="." method="_on_button_done_height_map_pressed"]
 [connection signal="pressed" from="Control/Button_DonePainting" to="." method="_on_button_done_painting_pressed"]
 
-[editable path="Control/PainterCanvas"]
-[editable path="Control/PaintPalette"]
 [editable path="Control/MeshGenExample"]
+[editable path="Control/PaintPalette"]
+[editable path="Control/CanvasSystem/PainterCanvas"]

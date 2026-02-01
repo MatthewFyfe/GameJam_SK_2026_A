@@ -57,3 +57,7 @@ func _on_button_done_painting_pressed() -> void:
 	
 	MeshGen_ref.export_bean_mask(baseMask, heightMapMask, paintedMask)
 	#get_tree().change_scene_to_file("res://Scenes/MeshGenExample.tscn")
+
+
+func _on_h_slider_changed() -> void:
+	pass # Replace with function body.

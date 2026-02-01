@@ -9,6 +9,7 @@ radius = 0.4
 height = 1.31875
 
 [node name="Bullet" type="RigidBody3D"]
+gravity_scale = 4.817
 continuous_cd = true
 script = ExtResource("1_62s1b")
 

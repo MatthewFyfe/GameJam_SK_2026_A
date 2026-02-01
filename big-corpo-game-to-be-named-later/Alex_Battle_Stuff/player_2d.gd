@@ -24,6 +24,7 @@ var launching: bool = false
 var bullet: PackedScene = preload("res://Alex_Battle_Stuff/bullet.tscn")
 @export var retical: Retical = null
 @export var player_ID: int = 0
+var shot_timer: float = 0
 
 var terminal_velocity: float = -150
 var gravity: float = -100
@@ -33,9 +34,12 @@ var max_speed: float = 50
 var max_jumps: int = 40
 var friction: float = 90
 var bullet_velocity: float = 30
+var shot_delay: float = 0.8
 
 func _physics_process(delta) -> void:
 	move(delta)
+	
+	shot_timer += delta
 	
 	if (Input.get_connected_joypads()):
 		
@@ -57,7 +61,8 @@ func _physics_process(delta) -> void:
 			jump_held = false
 		
 		#Shooting
-		if (Input.is_joy_button_pressed(player_ID, JoyButton.JOY_BUTTON_RIGHT_SHOULDER)):
+		if (Input.is_joy_button_pressed(player_ID, JoyButton.JOY_BUTTON_RIGHT_SHOULDER) and shot_timer > shot_delay):
+			shot_timer = 0
 			var item:RigidBody3D = bullet.instantiate()
 			self.get_parent().add_child(item)
 			item.global_position = self.global_position
@@ -70,8 +75,9 @@ func _physics_process(delta) -> void:
 			item.player_ID = player_ID
 		
 		
-	
-	if (Input.is_action_just_pressed("fire")):
+	#test this elif (was else, but crashed when clicking lol)
+	elif (Input.is_action_just_pressed("fire") and shot_timer > shot_delay):
+		shot_timer = 0
 		var item:RigidBody3D = bullet.instantiate()
 		self.get_parent().add_child(item)
 		item.global_position = self.global_position

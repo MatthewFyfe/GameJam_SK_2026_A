@@ -19,8 +19,9 @@ size = Vector3(16, 37, 13)
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="GameManager" type="Node3D" parent="."]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 4.9999995, 0)
 script = ExtResource("1_4rxto")
+player_scn = ExtResource("1_25nfd")
 
 [node name="stage" type="RigidBody3D" parent="." groups=["terrain"]]
 gravity_scale = 0.0
@@ -105,14 +106,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, -66, 1)
 shape = SubResource("BoxShape3D_cph7k")
 
 [node name="retical" parent="." instance=ExtResource("2_cph7k")]
-
-[node name="Player2d" parent="." node_paths=PackedStringArray("retical") instance=ExtResource("1_25nfd")]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -0.99999994, 1.9999999, 0)
-gravity_scale = 0.0
-retical = NodePath("../retical")
-
-[node name="Player2d2" parent="." node_paths=PackedStringArray("retical") instance=ExtResource("1_25nfd")]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -1.9999999, 3.9999998, 0)
-gravity_scale = 0.0
-retical = NodePath("../retical")
-player_ID = 1

@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://r8m654j0k8bt"]
+[gd_scene load_steps=14 format=3 uid="uid://r8m654j0k8bt"]
 
 [ext_resource type="PackedScene" uid="uid://dwg8sh5aro3nw" path="res://Scenes/MakeYourMask/make_your_mask.tscn" id="1_ttbkc"]
 [ext_resource type="Texture2D" uid="uid://sfsbq5m3chuj" path="res://Textures/Imrg.png" id="2_kga8e"]
+[ext_resource type="PackedScene" uid="uid://pe07bathr5jj" path="res://Scenes/KingTiki/KingDialogue.tscn" id="3_d0ass"]
 [ext_resource type="PackedScene" uid="uid://fruip0iyihtc" path="res://Scenes/MusicPlayer/MusicPlayer.tscn" id="3_qcexu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d0ass"]
@@ -55,6 +56,9 @@ mesh = SubResource("BoxMesh_8nbk0")
 [node name="Player1" parent="MakeYourMask" index="2"]
 offset_right = -960.0
 offset_bottom = -540.0
+
+[node name="KingDialogue" parent="MakeYourMask/Player1" index="1" instance=ExtResource("3_d0ass")]
+position = Vector2(-17, 197)
 
 [node name="MusicPlayer" parent="MakeYourMask" instance=ExtResource("3_qcexu")]
 

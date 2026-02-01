@@ -1,4 +1,4 @@
-extends Sprite2D
+extends TextureRect
 class_name PainterCanvas
 
 #set up all our stamps here
@@ -106,8 +106,9 @@ func _input(event: InputEvent) -> void:
 		if event.pressed and event.is_echo() == false:
 			#left click to paint
 			if event.button_index == MOUSE_BUTTON_LEFT:
-				var localPosition = to_local(event.position)
-				var imgPosition = localPosition-offset+get_rect().size/2.0
+				
+				var localPosition = -(self.global_position - event.position)
+				var imgPosition = localPosition
 				
 				if((imgPosition - prev_mouse_pos).length_squared() >28):
 					prev_mouse_pos = imgPosition
@@ -116,8 +117,8 @@ func _input(event: InputEvent) -> void:
 			
 			#right click to mimic color
 			if event.button_index == MOUSE_BUTTON_RIGHT:
-				var localPosition = to_local(event.position)
-				var imgPosition = localPosition-offset+get_rect().size/2.0
+				var localPosition = -(self.global_position - event.position)
+				var imgPosition = localPosition
 				#If in canvas, get color from there, if outside canvas get color from viewport
 				if img.get_used_rect().has_point(imgPosition):
 					paint_color = img.get_pixelv(imgPosition)
@@ -126,8 +127,8 @@ func _input(event: InputEvent) -> void:
 	#"Brush drag events
 	if event is InputEventMouseMotion:
 		if event.button_mask== MOUSE_BUTTON_LEFT:
-			var localPosition = to_local(event.position)
-			var imgPosition = localPosition-offset+get_rect().size/2.0
+			var localPosition = -(self.global_position - event.position)
+			var imgPosition = localPosition
 			
 			if event.relative.length_squared() > 0:
 				var num := ceili(event.relative.length())

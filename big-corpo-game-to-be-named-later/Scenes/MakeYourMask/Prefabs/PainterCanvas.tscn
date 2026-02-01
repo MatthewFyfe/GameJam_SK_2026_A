@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://ck3fx02f50w3h" path="res://icon.svg" id="2_8ql5u"]
 [ext_resource type="Texture2D" uid="uid://beuemts7icii3" path="res://Textures/brish.png" id="3_8ql5u"]
 
-[node name="PainterCanvas" type="Sprite2D"]
+[node name="TextureRect" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("1_t41jv")
 stamp = ExtResource("2_8ql5u")
 mask = ExtResource("2_8ql5u")

@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=3 uid="uid://di7pvtkyro6u"]
+
+[ext_resource type="Script" uid="uid://rh1jmqlkko1r" path="res://Alex_Battle_Stuff/game_manager.gd" id="1_4rxto"]
+[ext_resource type="PackedScene" uid="uid://bf8cl4l3m71ww" path="res://Alex_Battle_Stuff/player_2D.tscn" id="1_25nfd"]
+[ext_resource type="PackedScene" uid="uid://drcbwmjb4v3ns" path="res://Alex_Battle_Stuff/retical.tscn" id="2_cph7k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5fowf"]
+size = Vector3(20, 2.8, 3.1000001)
+
+[sub_resource type="BoxMesh" id="BoxMesh_25nfd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_25nfd"]
+size = Vector3(88, 16, 11)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cph7k"]
+size = Vector3(16, 37, 13)
+
+[node name="Battle" type="Node3D"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="GameManager" type="Node3D" parent="."]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 4.9999995, 0)
+script = ExtResource("1_4rxto")
+player_scn = ExtResource("1_25nfd")
+
+[node name="stage" type="RigidBody3D" parent="." groups=["terrain"]]
+gravity_scale = 0.0
+can_sleep = false
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage"]
+transform = Transform3D(0.9999912, 0, 0, 0, 0.9999912, 0, 0, 0, 1, 0, -0.99999785, -0.001999855)
+shape = SubResource("BoxShape3D_5fowf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage"]
+transform = Transform3D(20, 0, 0, 0, 2.875, 0, 0, 0, 3, 0, -1, 0)
+mesh = SubResource("BoxMesh_25nfd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 7.464102, 5.464102)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["border_bottom"]]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+can_sleep = false
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499433, -17.998795, 0)
+shape = SubResource("BoxShape3D_25nfd")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="." groups=["border_top"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 37, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+can_sleep = false
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0005450248, -3.499961, 0)
+shape = SubResource("BoxShape3D_25nfd")
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="." groups=["border_right"]]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 73.99999, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+can_sleep = false
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, -66, 1)
+shape = SubResource("BoxShape3D_cph7k")
+
+[node name="RigidBody3D4" type="RigidBody3D" parent="." groups=["border_left"]]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -71.99999, 73.99999, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+can_sleep = false
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, -66, 1)
+shape = SubResource("BoxShape3D_cph7k")
+
+[node name="retical" parent="." instance=ExtResource("2_cph7k")]

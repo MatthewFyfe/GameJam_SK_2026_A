@@ -80,9 +80,10 @@ func erase_canvas(level : int) -> void:
 
 #Called every time we paint
 func _paint_tex(pos) -> void:
-	#if we did not set a texture, use a rectangle
-	if brush_texture == null :
-		img.fill_rect(Rect2i(pos, Vector2i(1,1)).grow(brush_size), paint_color)
+	#when painting transparent (erase) use no brush (solid color only)
+	if(paint_color == canvas_bg or paint_color == canvas_bg2 or paint_color == canvas_bg3):
+		img.fill_rect(Rect2i(pos, Vector2i(1,1)).grow(brush_size/2.0), paint_color)
+		
 	#otherwise use brush texture
 	else :
 		img.blend_rect(brush_img, brush_img.get_used_rect(), pos - Vector2(brush_size/2.0, brush_size/2.0))
@@ -140,7 +141,7 @@ func _input(event: InputEvent) -> void:
 
 #Player modified brush size
 func _on_h_slider_value_changed(value: float) -> void:
-	brush_size = int(value)*10
+	brush_size = int(value)
 
 #Possible fix if we run into mipmap issues on 3D model
 func mipmapFix() -> void:

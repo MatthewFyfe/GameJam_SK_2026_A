@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://mnccodstjw4w"]
+[gd_scene load_steps=8 format=3 uid="uid://mnccodstjw4w"]
 
 [ext_resource type="Script" uid="uid://clgvkkfq0b5rn" path="res://Scenes/MainMenu/main_menu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://bwad6w4ayiub0" path="res://Textures/TitleScreen/logo.png" id="2_v763k"]
 [ext_resource type="Theme" uid="uid://cgvg25kwoey0m" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="3_adu2g"]
+[ext_resource type="Texture2D" uid="uid://dga1fjmly8a6e" path="res://Textures/UI/woodpanelsquare1_warm.png" id="4_n5jej"]
 [ext_resource type="Texture2D" uid="uid://bgmr5w8m5fn43" path="res://Textures/UI/woodpanelsquare1.png" id="5_0l8wx"]
+[ext_resource type="Texture2D" uid="uid://c2dpngri7ng6t" path="res://Textures/UI/woodpanelsquare1_hover.png" id="5_2r307"]
+[ext_resource type="Texture2D" uid="uid://bchlgdja5fr47" path="res://Textures/UI/woodpanelsquare1_disabled.png" id="6_omq0y"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_28flt")
@@ -44,6 +47,9 @@ grow_vertical = 2
 [node name="StartButton_1P" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_0l8wx")
+texture_pressed = ExtResource("4_n5jej")
+texture_hover = ExtResource("5_2r307")
+texture_disabled = ExtResource("6_omq0y")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Control/HBoxContainer/StartButton_1P"]
@@ -66,6 +72,9 @@ text = "Start (1 Player)"
 [node name="StartButton_2P" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_0l8wx")
+texture_pressed = ExtResource("4_n5jej")
+texture_hover = ExtResource("5_2r307")
+texture_disabled = ExtResource("6_omq0y")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Control/HBoxContainer/StartButton_2P"]

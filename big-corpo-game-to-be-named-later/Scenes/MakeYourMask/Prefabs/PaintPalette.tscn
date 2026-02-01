@@ -26,7 +26,6 @@ offset_top = 25.0
 offset_bottom = 41.0
 grow_horizontal = 2
 min_value = 1.0
-max_value = 50.0
 value = 10.0
 
 [node name="Label" type="Label" parent="Panel/HSlider"]

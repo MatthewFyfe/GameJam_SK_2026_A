@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dsu43w1dumf2l"]
+
+[ext_resource type="Texture2D" uid="uid://biiatmfcqd1mo" path="res://Models/environment/sanstoneTILE2-2mx2m-FLAT_sandstone3-stripes.png" id="1_1pfor"]
+
+[resource]
+albedo_texture = ExtResource("1_1pfor")

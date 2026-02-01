@@ -5,11 +5,14 @@
 [ext_resource type="Theme" uid="uid://cgvg25kwoey0m" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="3_adu2g"]
 [ext_resource type="Texture2D" uid="uid://dga1fjmly8a6e" path="res://Textures/UI/woodpanelsquare1_warm.png" id="4_n5jej"]
 [ext_resource type="Texture2D" uid="uid://bgmr5w8m5fn43" path="res://Textures/UI/woodpanelsquare1.png" id="5_0l8wx"]
-[ext_resource type="Texture2D" uid="uid://c2dpngri7ng6t" path="res://Textures/UI/woodpanelsquare1_hover.png" id="5_2r307"]
-[ext_resource type="Texture2D" uid="uid://bchlgdja5fr47" path="res://Textures/UI/woodpanelsquare1_disabled.png" id="6_omq0y"]
+[ext_resource type="Texture2D" uid="uid://byc4ifk1ggx6t" path="res://Textures/UI/woodpanelsquare1_hover.png" id="5_2r307"]
+[ext_resource type="Texture2D" uid="uid://dlgeqgqirbcda" path="res://Textures/UI/woodpanelsquare1_disabled.png" id="6_omq0y"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_28flt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -18,33 +21,26 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="MainMenuSplash" type="TextureRect" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
-offset_left = 265.0
-offset_top = -8.0
-offset_right = 1513.0
-offset_bottom = 856.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
+
+[node name="MainMenuSplash" type="TextureRect" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("2_v763k")
-metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 60.0
-offset_top = 245.0
-offset_right = 1088.0
-offset_bottom = 757.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="StartButton_1P" type="TextureButton" parent="Control/HBoxContainer"]
+[node name="StartButton_1P" type="TextureButton" parent="Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_0l8wx")
 texture_pressed = ExtResource("4_n5jej")
@@ -52,7 +48,7 @@ texture_hover = ExtResource("5_2r307")
 texture_disabled = ExtResource("6_omq0y")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Control/HBoxContainer/StartButton_1P"]
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer/StartButton_1P"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -69,7 +65,7 @@ grow_vertical = 2
 theme = ExtResource("3_adu2g")
 text = "Start (1 Player)"
 
-[node name="StartButton_2P" type="TextureButton" parent="Control/HBoxContainer"]
+[node name="StartButton_2P" type="TextureButton" parent="Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_0l8wx")
 texture_pressed = ExtResource("4_n5jej")
@@ -77,7 +73,7 @@ texture_hover = ExtResource("5_2r307")
 texture_disabled = ExtResource("6_omq0y")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Control/HBoxContainer/StartButton_2P"]
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer/StartButton_2P"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -94,4 +90,4 @@ grow_vertical = 2
 theme = ExtResource("3_adu2g")
 text = "Start (2 Player)"
 
-[connection signal="pressed" from="Control/HBoxContainer/StartButton_1P" to="." method="button_start"]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/StartButton_1P" to="." method="button_start"]

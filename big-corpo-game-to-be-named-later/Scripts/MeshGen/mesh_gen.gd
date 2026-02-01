@@ -51,7 +51,7 @@ func generate_mesh(mask:Image,depth:Image) -> ArrayMesh:
 	var stool := SurfaceTool.new()
 	var indx := 0
 	var sizx:float = mask.get_size().x-1
-	var sizy:float = mask.get_size().x-1
+	var sizy:float = mask.get_size().y-1
 	
 	stool.begin(Mesh.PRIMITIVE_TRIANGLES)
 	for x in range(sizx):

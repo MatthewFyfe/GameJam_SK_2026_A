@@ -75,7 +75,8 @@ func _on_button_done_painting_pressed() -> void:
 	
 	if(GlobalPlayerData.playersSubmitted >= GlobalPlayerData.MaxPlayers):
 		print("SUBMITTED")
-		get_tree().change_scene_to_file("res://Alex_Battle_Stuff/battle.tscn")
+		await get_tree().create_timer(3.0).timeout
+		get_tree().change_scene_to_file("res://Alex_Battle_Stuff/map_scene.tscn")
 	#get_tree().change_scene_to_file("res://Scenes/MeshGenExample.tscn")
 
 

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://r2eljl4ycp60" path="res://Screenshots/Screenshot_20260131_133222.png" id="5_dcgq8"]
 [ext_resource type="PackedScene" uid="uid://c1gjn276iqw6q" path="res://Scenes/MakeYourMask/Prefabs/PainterCanvas.tscn" id="6_l41ql"]
 [ext_resource type="Texture2D" uid="uid://b4vmgtot8i7x" path="res://Textures/brish9.png" id="7_7eey7"]
-[ext_resource type="Theme" uid="uid://cgvg25kwoey0m" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="8_pb2qy"]
+[ext_resource type="Theme" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="8_pb2qy"]
 [ext_resource type="Texture2D" uid="uid://bgmr5w8m5fn43" path="res://Textures/UI/woodpanelsquare1.png" id="9_xi118"]
 [ext_resource type="Texture2D" uid="uid://dga1fjmly8a6e" path="res://Textures/UI/woodpanelsquare1_warm.png" id="10_wdpgr"]
 [ext_resource type="Texture2D" uid="uid://byc4ifk1ggx6t" path="res://Textures/UI/woodpanelsquare1_hover.png" id="11_srtni"]
@@ -93,6 +93,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -90.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -104,12 +105,18 @@ texture = ExtResource("5_dcgq8")
 
 [node name="PBackCanvas2" type="TextureRect" parent="Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control"]
 layout_mode = 1
-offset_right = 256.0
-offset_bottom = 410.0
-expand_mode = 2
+offset_left = 47.0
+offset_top = -1.0
+offset_right = 303.0
+offset_bottom = 409.0
+expand_mode = 4
 
 [node name="PainterCanvas" parent="Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control" node_paths=PackedStringArray("current_color_rect") instance=ExtResource("6_l41ql")]
 layout_mode = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
+expand_mode = 4
+stretch_mode = 0
 current_color_rect = NodePath("../../../PaintPalette/Panel/CurrentPaintColor")
 brush_texture = ExtResource("7_7eey7")
 canvas_bg = Color(0, 0, 0, 0.25882354)

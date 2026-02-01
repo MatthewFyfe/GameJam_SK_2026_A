@@ -18,8 +18,12 @@ var submitted = false
 @export var ButtonDoneHeight : TextureButton
 @export var ButtonDonePaint : TextureButton
 
+@export var playsAudio : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
+	if(playsAudio):
+		$MusicPlayer.playMaskBuilding()
 	ButtonDoneMask.disabled = false
 	ButtonDoneHeight.disabled = true
 	ButtonDonePaint.disabled = true
@@ -77,3 +81,23 @@ func _on_button_done_painting_pressed() -> void:
 
 func _on_h_slider_changed() -> void:
 	pass # Replace with function body.
+	
+#AUDIO
+var timeDelta = 5
+func _process(delta):
+	if(playsAudio):
+		timeDelta += delta
+		
+		if(timeDelta > 5):
+			var songToPlay = (randi() % 4)
+			if(songToPlay == 0):
+				$MusicPlayer.playD1()
+			if(songToPlay == 1):
+				$MusicPlayer.playD2()
+			if(songToPlay == 2):
+				$MusicPlayer.playD3()
+			if(songToPlay == 3):
+				$MusicPlayer.playD4()
+			if(songToPlay == 4):
+				$MusicPlayer.playD5()
+			timeDelta = 0

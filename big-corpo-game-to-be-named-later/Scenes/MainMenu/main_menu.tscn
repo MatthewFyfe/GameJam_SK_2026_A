@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://mnccodstjw4w"]
 
 [ext_resource type="Script" uid="uid://clgvkkfq0b5rn" path="res://Scenes/MainMenu/main_menu.gd" id="1_28flt"]
-[ext_resource type="VideoStream" path="res://Screenshots/output3.ogv" id="3_2r307"]
+[ext_resource type="VideoStream" uid="uid://b1it1k3oqrwh8" path="res://Screenshots/output3.ogv" id="3_2r307"]
 [ext_resource type="Theme" uid="uid://cgvg25kwoey0m" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="3_adu2g"]
 [ext_resource type="Texture2D" uid="uid://dga1fjmly8a6e" path="res://Textures/UI/woodpanelsquare1_warm.png" id="4_n5jej"]
 [ext_resource type="Texture2D" uid="uid://bgmr5w8m5fn43" path="res://Textures/UI/woodpanelsquare1.png" id="5_0l8wx"]
@@ -151,7 +151,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_adu2g")
-text = "Controlls"
+text = "Controls"
 
 [node name="TextureButton" type="TextureButton" parent="Control"]
 visible = false

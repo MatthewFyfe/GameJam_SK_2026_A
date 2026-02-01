@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bgmr5w8m5fn43" path="res://Textures/UI/woodpanelsquare1.png" id="5_0l8wx"]
 [ext_resource type="Texture2D" uid="uid://byc4ifk1ggx6t" path="res://Textures/UI/woodpanelsquare1_hover.png" id="5_2r307"]
 [ext_resource type="Texture2D" uid="uid://dlgeqgqirbcda" path="res://Textures/UI/woodpanelsquare1_disabled.png" id="6_omq0y"]
+[ext_resource type="PackedScene" uid="uid://pe07bathr5jj" path="res://Scenes/KingTiki/KingDialogue.tscn" id="8_2r307"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_28flt")
@@ -101,5 +102,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_adu2g")
 text = "Start (2 Player)"
+
+[node name="KingDialogue" parent="." instance=ExtResource("8_2r307")]
+position = Vector2(106, -101)
+scale = Vector2(1.5, 1.5)
 
 [connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/StartButton_1P" to="." method="button_start"]

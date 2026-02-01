@@ -1,20 +1,26 @@
-[gd_scene load_steps=13 format=3 uid="uid://ciehhml8pkd35"]
+[gd_scene load_steps=15 format=3 uid="uid://dwg8sh5aro3nw"]
 
-[ext_resource type="Script" uid="uid://bglw8b81wkuao" path="res://Scenes/MakeYourMask/make_your_mask.gd" id="1_217l0"]
-[ext_resource type="PackedScene" uid="uid://c1gjn276iqw6q" path="res://Scenes/MakeYourMask/Prefabs/PainterCanvas.tscn" id="1_iydgg"]
-[ext_resource type="Texture2D" uid="uid://r2eljl4ycp60" path="res://Screenshots/Screenshot_20260131_133222.png" id="2_rr3f8"]
-[ext_resource type="PackedScene" uid="uid://bx0qar1udm4ld" path="res://Scenes/MakeYourMask/Prefabs/PaintPalette.tscn" id="2_s3r2p"]
-[ext_resource type="Texture2D" uid="uid://b4vmgtot8i7x" path="res://Textures/brish9.png" id="4_ryyya"]
-[ext_resource type="PackedScene" uid="uid://caklxqo0drbqa" path="res://Scenes/MeshGenExample.tscn" id="5_0tiwb"]
-[ext_resource type="Texture2D" uid="uid://bgmr5w8m5fn43" path="res://Textures/UI/woodpanelsquare1.png" id="6_ducfl"]
-[ext_resource type="Theme" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="7_8ewdo"]
-[ext_resource type="Texture2D" uid="uid://byc4ifk1ggx6t" path="res://Textures/UI/woodpanelsquare1_hover.png" id="8_dlbj7"]
-[ext_resource type="Texture2D" uid="uid://dga1fjmly8a6e" path="res://Textures/UI/woodpanelsquare1_warm.png" id="8_tahyh"]
-[ext_resource type="Texture2D" uid="uid://dlgeqgqirbcda" path="res://Textures/UI/woodpanelsquare1_disabled.png" id="9_tahyh"]
-[ext_resource type="PackedScene" uid="uid://yit028ns055k" path="res://Models/customizearea1.glb" id="12_8uyf6"]
+[ext_resource type="Script" uid="uid://bglw8b81wkuao" path="res://Scenes/MakeYourMask/make_your_mask.gd" id="1_h845d"]
+[ext_resource type="PackedScene" uid="uid://caklxqo0drbqa" path="res://Scenes/MeshGenExample.tscn" id="2_icfd8"]
+[ext_resource type="Texture2D" uid="uid://sfsbq5m3chuj" path="res://Textures/Imrg.png" id="3_wyxhn"]
+[ext_resource type="PackedScene" uid="uid://bx0qar1udm4ld" path="res://Scenes/MakeYourMask/Prefabs/PaintPalette.tscn" id="4_dq5ps"]
+[ext_resource type="PackedScene" uid="uid://yit028ns055k" path="res://Models/customizearea1.glb" id="4_icfd8"]
+[ext_resource type="Texture2D" uid="uid://r2eljl4ycp60" path="res://Screenshots/Screenshot_20260131_133222.png" id="5_dcgq8"]
+[ext_resource type="PackedScene" uid="uid://c1gjn276iqw6q" path="res://Scenes/MakeYourMask/Prefabs/PainterCanvas.tscn" id="6_l41ql"]
+[ext_resource type="Texture2D" uid="uid://b4vmgtot8i7x" path="res://Textures/brish9.png" id="7_7eey7"]
+[ext_resource type="Theme" path="res://Textures/UI/FaceOff_UI_Theme.tres" id="8_pb2qy"]
+[ext_resource type="Texture2D" uid="uid://bgmr5w8m5fn43" path="res://Textures/UI/woodpanelsquare1.png" id="9_xi118"]
+[ext_resource type="Texture2D" uid="uid://dga1fjmly8a6e" path="res://Textures/UI/woodpanelsquare1_warm.png" id="10_wdpgr"]
+[ext_resource type="Texture2D" uid="uid://byc4ifk1ggx6t" path="res://Textures/UI/woodpanelsquare1_hover.png" id="11_srtni"]
+[ext_resource type="Texture2D" uid="uid://dlgeqgqirbcda" path="res://Textures/UI/woodpanelsquare1_disabled.png" id="12_d1jps"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n8kie"]
+resource_local_to_scene = true
+cull_mode = 2
+albedo_texture = ExtResource("3_wyxhn")
 
 [node name="MakeYourMask" type="Node3D" node_paths=PackedStringArray("painter_image", "PBack_image", "Palette_grid_container", "MeshGen_ref", "ButtonDoneMask", "ButtonDoneHeight", "ButtonDonePaint")]
-script = ExtResource("1_217l0")
+script = ExtResource("1_h845d")
 painter_image = NodePath("Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control/PainterCanvas")
 PBack_image = NodePath("Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control/PBackCanvas2")
 Palette_grid_container = NodePath("Player1/VBoxContainer/HBoxContainer2/PaintPalette/Panel/GridContainer")
@@ -23,15 +29,12 @@ ButtonDoneMask = NodePath("Player1/VBoxContainer/HBoxContainer/Button_DoneMask")
 ButtonDoneHeight = NodePath("Player1/VBoxContainer/HBoxContainer/Button_DoneHeight")
 ButtonDonePaint = NodePath("Player1/VBoxContainer/HBoxContainer/Button_DonePainting")
 
-[node name="MeshGenExample" parent="." instance=ExtResource("5_0tiwb")]
+[node name="MeshGenExample" parent="." instance=ExtResource("2_icfd8")]
 
-[node name="Camera3D" parent="MeshGenExample" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23, 0, 3.031)
+[node name="MeshInstance3D" parent="MeshGenExample/BeanBoiSceene" index="1"]
+material_override = SubResource("StandardMaterial3D_n8kie")
 
-[node name="Node3D" parent="MeshGenExample" index="2"]
-transform = Transform3D(0.8746197, 0, -0.4848096, 0, 1, 0, 0.4848096, 0, 0.8746197, 0, 0, 0)
-
-[node name="customizearea" parent="." instance=ExtResource("12_8uyf6")]
+[node name="customizearea" parent="." instance=ExtResource("4_icfd8")]
 transform = Transform3D(-1.8140225e-08, 0, 0.415, 0, 0.415, 0, -0.415, 0, -1.8140225e-08, 4.115, -1.68, -15.655)
 
 [node name="Player1" type="Control" parent="."]
@@ -55,7 +58,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PaintPalette" parent="Player1/VBoxContainer/HBoxContainer2" instance=ExtResource("2_s3r2p")]
+[node name="PaintPalette" parent="Player1/VBoxContainer/HBoxContainer2" instance=ExtResource("4_dq5ps")]
 layout_mode = 2
 size_flags_horizontal = 2
 
@@ -97,22 +100,24 @@ grow_vertical = 2
 layout_mode = 1
 offset_right = 341.0
 offset_bottom = 414.0
-texture = ExtResource("2_rr3f8")
+texture = ExtResource("5_dcgq8")
 
 [node name="PBackCanvas2" type="TextureRect" parent="Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control"]
 layout_mode = 1
-offset_right = 341.0
-offset_bottom = 414.0
-texture = ExtResource("2_rr3f8")
+offset_left = 67.0
+offset_top = 2.0
+offset_right = 323.0
+offset_bottom = 412.0
+expand_mode = 2
 
-[node name="PainterCanvas" parent="Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control" node_paths=PackedStringArray("current_color_rect") instance=ExtResource("1_iydgg")]
+[node name="PainterCanvas" parent="Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control" node_paths=PackedStringArray("current_color_rect") instance=ExtResource("6_l41ql")]
 layout_mode = 1
 offset_left = 67.0
 offset_top = 2.0
 offset_right = 107.0
 offset_bottom = 42.0
 current_color_rect = NodePath("../../../PaintPalette/Panel/CurrentPaintColor")
-brush_texture = ExtResource("4_ryyya")
+brush_texture = ExtResource("7_7eey7")
 canvas_bg = Color(0, 0, 0, 0.25882354)
 canvas_bg2 = Color(0, 0, 0, 0.25882354)
 canvas_bg3 = Color(0, 0, 0, 0.25882354)
@@ -135,6 +140,10 @@ text = "Skin"
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="Control" type="Control" parent="Player1/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Player1/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -142,11 +151,11 @@ size_flags_vertical = 3
 [node name="Button_DoneMask" type="TextureButton" parent="Player1/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("7_8ewdo")
-texture_normal = ExtResource("6_ducfl")
-texture_pressed = ExtResource("8_tahyh")
-texture_hover = ExtResource("8_dlbj7")
-texture_disabled = ExtResource("9_tahyh")
+theme = ExtResource("8_pb2qy")
+texture_normal = ExtResource("9_xi118")
+texture_pressed = ExtResource("10_wdpgr")
+texture_hover = ExtResource("11_srtni")
+texture_disabled = ExtResource("12_d1jps")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -164,17 +173,17 @@ offset_right = 126.5
 offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("7_8ewdo")
+theme = ExtResource("8_pb2qy")
 text = "Done Mask Shape"
 
 [node name="Button_DoneHeight" type="TextureButton" parent="Player1/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("7_8ewdo")
-texture_normal = ExtResource("6_ducfl")
-texture_pressed = ExtResource("8_tahyh")
-texture_hover = ExtResource("8_dlbj7")
-texture_disabled = ExtResource("9_tahyh")
+theme = ExtResource("8_pb2qy")
+texture_normal = ExtResource("9_xi118")
+texture_pressed = ExtResource("10_wdpgr")
+texture_hover = ExtResource("11_srtni")
+texture_disabled = ExtResource("12_d1jps")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -192,17 +201,17 @@ offset_right = 57.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("7_8ewdo")
+theme = ExtResource("8_pb2qy")
 text = "Done HeightMap"
 
 [node name="Button_DonePainting" type="TextureButton" parent="Player1/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("7_8ewdo")
-texture_normal = ExtResource("6_ducfl")
-texture_pressed = ExtResource("8_tahyh")
-texture_hover = ExtResource("8_dlbj7")
-texture_disabled = ExtResource("9_tahyh")
+theme = ExtResource("8_pb2qy")
+texture_normal = ExtResource("9_xi118")
+texture_pressed = ExtResource("10_wdpgr")
+texture_hover = ExtResource("11_srtni")
+texture_disabled = ExtResource("12_d1jps")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -220,7 +229,7 @@ offset_right = 57.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("7_8ewdo")
+theme = ExtResource("8_pb2qy")
 text = "Done Painting"
 
 [connection signal="value_changed" from="Player1/VBoxContainer/HBoxContainer2/PaintPalette/Panel/HSlider" to="Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control/PainterCanvas" method="_on_h_slider_value_changed"]
@@ -229,5 +238,6 @@ text = "Done Painting"
 [connection signal="pressed" from="Player1/VBoxContainer/HBoxContainer/Button_DonePainting" to="." method="_on_button_done_painting_pressed"]
 
 [editable path="MeshGenExample"]
+[editable path="MeshGenExample/BeanBoiSceene"]
 [editable path="Player1/VBoxContainer/HBoxContainer2/PaintPalette"]
 [editable path="Player1/VBoxContainer/HBoxContainer2/CanvasSystem/Control/PainterCanvas"]

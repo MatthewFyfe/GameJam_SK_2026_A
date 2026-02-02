@@ -1,15 +1,3 @@
 [remap]
 
-importer="csv_translation"
-type="Translation"
-uid="uid://be2fbxostnllc"
-valid=false
-
-[deps]
-
-source_file="res://Text/GameJamTextSheet-KingMaskBarks.csv"
-
-[params]
-
-compress=true
-delimiter=0
+importer="keep"
